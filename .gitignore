@@ -1,0 +1,52 @@
+# ====================================================================
+# Git Ignore for ClinHGAT-RAG CDSS
+# Giữ lại mã nguồn cần thiết và dữ liệu y khoa (data/). Loại bỏ các file mô hình lớn,
+# môi trường ảo, file tạm và file build LaTeX.
+# ====================================================================
+
+# --- Các file mô hình LLM & Trọng số GNN (Rất nặng, >5GB, không commit lên Git) ---
+*.gguf
+models/
+local_models/
+
+# --- Môi trường ảo & Thư viện Python ---
+.venv/
+venv/
+ENV/
+env/
+.streamlit/
+
+# --- Biến môi trường & Thông tin nhạy cảm ---
+.env
+.streamlit/secrets.toml
+
+# --- File tạm, Scratch và Cache của Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+scratch/
+tmp_*
+*.log
+*.tmp
+tmp_g.txt
+tmp_guidelines_check.txt
+pdf_text_temp.txt
+pdf_text_197_206.txt
+pdf_headings.txt
+
+# --- Các file biên dịch LaTeX (Giữ lại .tex và .bib, loại bỏ file log/aux khi build) ---
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.pdf
+# Loại bỏ PDF sinh ra từ LaTeX, nhưng KHÔNG ảnh hưởng đến PDF tài liệu y khoa trong thư mục data/
+
+# --- File hệ thống ---
+.DS_Store
+Thumbs.db

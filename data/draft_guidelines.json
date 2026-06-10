@@ -1,0 +1,1728 @@
+[
+    {
+        "phase": "Chăm sóc",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Uống nhiều nước",
+            "Trấn an",
+            "Thở oxy liên tục",
+            "Đảm bảo đường truyền dịch",
+            "Chăm sóc xuất huyết",
+            "Hút đờm",
+            "Vệ sinh răng miệng và cơ thể",
+            "Đảm bảo giường sạch sẽ",
+            "Dinh dưỡng đầy đủ"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Chăm sóc và theo dõi người bệnh sốc",
+        "severity": "Sốc Dengue",
+        "clinical_signs": [],
+        "lab_tests": [
+            "Lactate máu",
+            "Đường huyết",
+            "Điện giải đồ",
+            "Khí máu động mạch"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Cận lâm sàng",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [],
+        "lab_tests": [
+            "Tiểu cầu",
+            "Chức năng gan",
+            "Cấy máu",
+            "X quang phổi"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn chăm sóc",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [
+            "Biểu hiện tiêu hóa (nôn, tiêu chảy)",
+            "Hạn chế tiêm, thủ thuật xâm lấn"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Khuyến khích uống nước nhiều",
+            "Giảm sốt bằng thuốc và vật lý"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn chăm sóc",
+        "severity": "Dấu hiệu chuyển độ",
+        "clinical_signs": [
+            "Li bì",
+            "Tay chân lạnh",
+            "Đau bụng",
+            "Nôn nhiều hoặc nôn ra máu",
+            "Đi ngoài phân đen",
+            "Tiểu ít"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn chăm sóc",
+        "severity": "Sốt",
+        "clinical_signs": [
+            "Nếu nhiễm trùng nơi tiêm, trẻ sẽ sốt >7 ngày",
+            "Sốt gây mất nước",
+            "Paracetamol hạ nhiệt do tác dụng đưa ngưỡng điều nhiệt trở về mức bình thường"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Hướng dẫn bà mẹ cho trẻ uống nhiều nước sôi để nguội, nước cam, chanh, Oresol",
+            "Hướng dẫn bà mẹ cách chăm sóc trẻ sốt: uống nhiều nước, ăn cháo, uống sữa, cho uống paracetamol theo cữ nếu có"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin"
+        ]
+    },
+    {
+        "phase": "Giai đoạn chống sốc",
+        "severity": "Sốc Dengue",
+        "clinical_signs": [
+            "Mạch, huyết áp, tần số và biên độ thở 15-30 phút/lần hoặc 1 giờ/lần",
+            "Nhiệt độ: thân nhiệt vẫn cần được theo dõi",
+            "SpO2: người bệnh cần được theo dõi liên tục SpO2",
+            "Lượng nước tiểu 1 giờ/lần",
+            "Toàn trạng: bứt rứt, bất an, lo âu",
+            "Tri giác: tiếp xúc kém, lơ mơ, hôn mê",
+            "Da, niêm mạc: da tái tím, chi mát lạnh, thời gian làm đầy mao mạch",
+            "Dấu hiệu xuất huyết da có tăng thêm, có xuất huyết tiêu hóa, tiểu ra máu và ghi nhận lượng máu mất theo từng thời điểm",
+            "Vàng da, niêm mạc: xuất hiện sớm ở kết mạc mắt"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Theo dõi nghiêm ngặt theo y lệnh và cập nhật với bác sĩ thường xuyên, ghi chép chính xác vào bệnh án"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn cải thiện lâm sàng",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [
+            "Mạch giảm",
+            "Huyết áp bình thường",
+            "Hiệu áp > 20mmHg"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "CPT (Dextran hoặc HES 200/0,5)",
+            "RL (Ringer lactate)"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn hồi phục",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Hút ấm",
+            "Theo dõi mạch, huyết áp, nhịp thở 15-30 phút/lần (trẻ em); 30-60 phút/lần (người lớn)",
+            "Tăng lượng, tăng đạm, ăn bù một bữa một ngày"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn hồi phục",
+        "severity": "Hồi phục",
+        "clinical_signs": [
+            "Ngứa ngoài da",
+            "Nhịp tim chậm, không đều",
+            "Ngứa",
+            "Phát ban hồi phục"
+        ],
+        "lab_tests": [
+            "AST, ALT giảm",
+            "Hematocrit trở về bình thường"
+        ],
+        "treatments": [
+            "Không cần điều trị đặc biệt"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn hồi phục",
+        "severity": "Nguy cơ tái hấp thu",
+        "clinical_signs": [
+            "Hct cao",
+            "Huyết áp kẹt",
+            "Mạch nhanh nhỏ"
+        ],
+        "lab_tests": [
+            "HCT tăng",
+            "Tiểu cầu giảm"
+        ],
+        "treatments": [
+            "Giảm tốc độ dịch truyền",
+            "Nằm đầu cao",
+            "Thở NCPAP hoặc thở máy không xâm lấn",
+            "Sử dụng vận mạch dopamine hoặc dobutamine",
+            "Xem xét furosemide vào N7 của bệnh"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn hồi sức sốc",
+        "severity": "Sốc sốt xuất huyết Dengue",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Chú ý theo dõi đường huyết",
+            "Điều trị Glucose ưu trương tĩnh mạch khi có hạ đường huyết",
+            "Khi bệnh nhân ra sốc, cho ăn sớm qua đường miệng với thức ăn lỏng"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn không sốc",
+        "severity": "Sốt Dengue",
+        "clinical_signs": [
+            "Sốt cao liên tục 39-40°C trong vòng 7 ngày",
+            "Xuất huyết da (nghiệm pháp dây thắt dương tính, ban xuất huyết, bầm máu) và niêm mạc (chảy máu cam, chảy máu chân răng, nôn ra máu, ói ngoài ra máu)"
+        ],
+        "lab_tests": [
+            "Hematocrit (Hct) tăng ≥ 20% giá trị bình thường theo tuổi, giới",
+            "Tiểu cầu giảm ≤ 100.000/mm3"
+        ],
+        "treatments": [
+            "Mặc quần áo mỏng, vải sợi bông và nằm nơi thoáng mát",
+            "Thực hiện dùng paracetamol theo y lệnh",
+            "Lau mát bằng nước ấm khi sốt cao ≥ 39°C mà chưa đáp ứng paracetamol hoặc khi có biến chứng co giật do sốt"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin, Ibuprofen"
+        ]
+    },
+    {
+        "phase": "Giai đoạn không sốc",
+        "severity": "Sốt xuất huyết Dengue",
+        "clinical_signs": [
+            "Sốt cao liên tục 39-40°C trong vòng 7 ngày",
+            "Xuất huyết da (nghiệm pháp dây thắt dương tính, ban xuất huyết, bầm máu) và niêm mạc (chảy máu cam, chảy máu chân răng, nôn ra máu, ói ngoài ra máu)",
+            "Gan to",
+            "Sốc thường xảy ra vào ngày thứ 4 hoặc thứ 5 của bệnh lúc hạ sốt",
+            "Tỉnh táo",
+            "Tay chân ấm",
+            "Mạch, huyết áp bình thường theo tuổi",
+            "Nghiệm pháp dây thắt dương tính",
+            "Bầm tím vết tiêm, chảy máu mũi, chảy máu chân răng",
+            "Nôn ra máu (số lượng, tính chất)",
+            "Đi ngoài ra máu (số lượng, tính chất)",
+            "Nhiệt độ đo ở nách ≥ 39°C",
+            "Bứt rứt, khó chịu",
+            "Đau bụng, đau hạ sườn phải và nôn",
+            "Lượng nước tiểu bình thường: Nhiều hơn 1 ml/kg cân nặng/giờ"
+        ],
+        "lab_tests": [
+            "Hematocrit (Hct) tăng ≥ 20% giá trị bình thường theo tuổi, giới",
+            "Tiểu cầu giảm ≤ 100.000/mm3"
+        ],
+        "treatments": [
+            "Chăm sóc triệu chứng",
+            "Chọn kim luồn 20-22G",
+            "Chuẩn bị chai dịch truyền",
+            "Cắt băng dính cố định kim luồn"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Bác sĩ lo lắng",
+        "clinical_signs": [
+            "Bác sĩ lo lắng hoặc không an tâm khi điều trị"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Chảy máu",
+        "clinical_signs": [
+            "Bầm tím vết tiêm, xuất huyết dưới da",
+            "Chảy máu mũi",
+            "Nôn ra máu (số lượng, tính chất)",
+            "Đi ngoài ra máu (số lượng, tính chất)"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Theo dõi: Lượng nước tiểu 1 giờ/lần."
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Chẩn đoán phân biệt",
+        "clinical_signs": [
+            "Nôn ra máu",
+            "Đi ngoài ra máu",
+            "Men gan ≥ 400U/L",
+            "Rối loạn tri giác"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Huyết áp kẹt sau tái hồi",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Phân biệt các nguyên nhân: Hạ đường huyết, Tái sốc, Xuất huyết nội, Quá tải do truyền dịch hoặc tái hấp thu"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Khó thở do phù phổi",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Nằm đầu cao",
+            "Ngưng dịch nếu có y lệnh",
+            "Quan sát kiểu thở, tím tái, đếm nhịp thở, đo SpO2",
+            "Thở oxy qua gọng mũi 2-3 lít/phút hoặc qua mask theo y lệnh",
+            "Thực hiện y lệnh thuốc Furosemide hoặc vận mạch"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Lượng nước tiểu giảm",
+        "clinical_signs": [
+            "Giảm < 1ml/kg cân nặng/giờ"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Theo dõi: Lượng nước tiểu 1 giờ/lần."
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Nhiễm trùng",
+        "clinical_signs": [
+            "Nơi tiêm đỏ, có mủ",
+            "Bệnh nhi sốt"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Theo dõi nơi tiêm, theo dõi tình trạng nôn ra máu, đi ngoài ra máu"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Nôn ra máu, đi ngoài ra máu, chảy máu mũi, chảy máu chân răng",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Đưa trẻ đến bệnh viện cấp cứu ngay"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Phù phổi",
+        "clinical_signs": [
+            "Hct cao",
+            "Huyết áp kẹt",
+            "Mạch nhanh nhỏ"
+        ],
+        "lab_tests": [
+            "HCT tăng",
+            "Tiểu cầu giảm"
+        ],
+        "treatments": [
+            "Ngưng dịch",
+            "Nằm đầu cao",
+            "Thở NCPAP hoặc thở máy không xâm lấn",
+            "Dobutamine 5-10μg/kg/phút",
+            "Furosemide 0,5-1mg/kg tĩnh mạch chậm"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Rối loạn điện giải và thăng bằng kiềm toan",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Xác định mức độ rối loạn điện giải",
+            "Nếu có điều kiện thì đo các khí trong máu ở người bệnh sốc nặng và người bệnh sốc không đáp ứng nhanh chóng với điều trị"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Suy các tạng",
+        "clinical_signs": [
+            "Rối loạn ý thức",
+            "Tràn dịch màng phổi, màng bụng"
+        ],
+        "lab_tests": [
+            "AST/ALT ≥ 400U/L"
+        ],
+        "treatments": [
+            "Truyền Ringer Lactate 5-7ml/kg/h"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Suy gan cấp",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Tránh dùng các thuốc gây tổn thương gan",
+            "Điều trị hạ đường huyết, rối loạn điện giải nếu có",
+            "Điều chỉnh..."
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc Dengue",
+        "clinical_signs": [
+            "Mạch nhanh nhỏ",
+            "Huyết áp kẹt",
+            "Tay chân lạnh, ẩm",
+            "Mệt lả, bứt rứt",
+            "Chảy máu mũi, miệng hoặc xuất huyết âm đạo",
+            "Không tiểu trên 6 giờ",
+            "Biểu hiện hành vi thay đổi như lú lẫn, tăng kích thích, vật vã hoặc li bì",
+            "Chi lạnh, ẩm",
+            "Thời gian làm đầy mao mạch ≥ 3 giây",
+            "Lừ đừ hay vật vã",
+            "Tỉnh táo",
+            "Tay chân ấm",
+            "Thời gian đổ đầy mao mạch < 2 giây",
+            "Mạch và huyết áp bình thường theo tuổi",
+            "Nước tiểu ≥ 0,5-1ml/kg/giờ",
+            "Mạch nhanh",
+            "Huyết áp tụt hoặc kẹt",
+            "Hematocrit tăng cao",
+            "Mạch quay không bắt được",
+            "Huyết áp không đo được (HA=0)",
+            "Vật vã, lừ đừ, li bì",
+            "Đau bụng nhiều và liên tục",
+            "Nôn ói nhiều ≥ 3 lần/1 giờ hoặc ≥ 4 lần/6 giờ",
+            "Gan to > 2cm dưới bờ sườn",
+            "Tiểu ít",
+            "HCT tăng kèm tiểu cầu giảm nhanh",
+            "AST/ALT ≥ 1000U/L",
+            "Khó thở xuất hiện khi truyền dịch",
+            "Thời gian đổ đầy mao mạch tăng",
+            "Chi lạnh",
+            "Độ ấm/lạnh của chi giảm",
+            "Nhịp thở tăng",
+            "Nước tiểu ml/kg/giờ theo cân nặng như lúc tính để truyền dịch",
+            "Mạch cổ tay nhanh nhỏ",
+            "Tay chân lạnh",
+            "Mạch cổ tay nhanh, nhỏ",
+            "Thời gian làm đầy mao mạch > 2 giây",
+            "Huyết áp tụt so với trị số bình thường theo tuổi",
+            "Mạch cổ tay nhanh, nhỏ hoặc khó bắt",
+            "Thời gian làm đầy mao mạch chậm > 2 giây",
+            "Huyết áp tụt so với trị số bình thường theo tuổi, kẹt hoặc không đo được",
+            "Tiểu ít, màu sắc bất thường",
+            "SpO2 giảm dần hoặc < 92%",
+            "Lượng nước tiểu giảm"
+        ],
+        "lab_tests": [
+            "HCT tăng",
+            "Tiểu cầu giảm",
+            "Hct tăng cao",
+            "Hematocrit bì",
+            "AST/ALT ≥ 400U/L",
+            "HCT tăng kèm tiểu cầu giảm nhanh",
+            "HCT giảm nhanh trên 20% so với trị số đầu",
+            "HCT < 35%",
+            "PT/PTc > 1.5",
+            "Fibrinogen < 1g/l",
+            "Tiểu cầu < 50.000/mm3 + xuất huyết nặng",
+            "Tiểu cầu < 5.000/mm3 + chưa xuất huyết"
+        ],
+        "treatments": [
+            "Truyền Ringer Lactate 5-7ml/kg/h",
+            "Truyền cao phân tử 10-15ml/kg/giờ trong 1 giờ",
+            "Nếu cải thiện lâm sàng: tiếp tục Ringer lactate hoặc NaCl 0,9% tốc độ 10ml/kg/giờ trong 2 giờ, sau đó 6ml/kg/giờ trong 2 giờ, sau đó 3ml/kg/giờ trong 5-7 giờ, sau đó 1,5ml/kg/giờ trong 12 giờ",
+            "Truyền Ringer Lactate, Ringer Acetate hoặc NaCl 0,9% 6-7ml/kg/giờ trong 1-3 giờ, sau đó 5ml/kg/giờ trong 2-4 giờ",
+            "Nếu mạch, HA ổn định, Hct giảm, nước tiểu ≥ 0,5-1ml/kg/h, giảm tốc độ truyền Ringer Lactate, Ringer Acetate hoặc NaCl 0,9% 3ml/kg/h trong 2-4 giờ",
+            "Nếu mạch nhanh, HA tụt hoặc kẹt, Hct tăng: Điều trị toan, xuất huyết, hạ đường huyết, hạ calci huyết nếu có và truyền dịch tiếp tục",
+            "Nếu tổng dịch truyền > 60ml/kg: chuyển sang cao phân tử truyền tĩnh mạch 10-20ml/kg/giờ trong 1 giờ",
+            "Nếu tổng dịch truyền ≤ 60ml/kg: tăng tốc độ truyền Ringer Lactate, Ringer Acetate hoặc NaCl 0,9% 10-20ml/kg/giờ trong 1 giờ",
+            "Truyền CPT 10ml/kg/giờ",
+            "Truyền NaCl 0,9% 5ml/kg/giờ x 3-4 giờ",
+            "Truyền NaCl 0,9% 3ml/kg/giờ x 4-6 giờ",
+            "Truyền CPT 10-20ml/kg/giờ trong 1 giờ",
+            "Truyền hồng cầu lắng 5ml/kg hoặc máu toàn phần 10ml/kg",
+            "Đo HA động mạch xâm lấn, áp lực tĩnh mạch trung tâm và xử trí như sốc SXHD nặng",
+            "Nằm đầu thấp",
+            "Thở oxy",
+            "Truyền Ringer Lactate hoặc NaCl 0,9% với tốc độ 20ml/kg cân nặng trong 15 phút",
+            "Truyền Ringer Lactate 5-10ml/kg/giờ",
+            "Nếu cải thiện, truyền 5ml/kg/giờ",
+            "Nếu có dấu hiệu quá tải, ngưng dịch và cho thuốc tăng co cơ tim Dobutamin 3-10µg/kg/phút",
+            "Nếu còn sốc kèm giảm sức co cơ tim, phối hợp Adrenaline 0,05-0,3µg/kg/phút hoặc Noradrenaline 0,05-1µg/kg/phút",
+            "Nếu Hct thấp (< 35%) hoặc giảm > 20% so với ban đầu, truyền HCL 5ml/kg hoặc máu toàn phần 10ml/kg",
+            "Tốc độ truyền tùy tình trạng chảy máu và hematocrit, thường trong 1-2 giờ, song song đó truyền CPT 10ml/kg/giờ",
+            "Nếu mạch, huyết áp vẫn không đo được, bơm tĩnh mạch trực tiếp dung dịch cao phân tử 20ml/kg cân nặng/15 phút",
+            "Nếu không cải thiện, xử trí theo trường hợp thứ hai",
+            "Truyền hồng cầu lắng 5-10ml/kg",
+            "Truyền máu tươi đông lạnh",
+            "Truyền kết tủa lạnh",
+            "Xử trí cầm máu: băng ép tại chỗ, nhét bấc hoặc gạc mũi trước/sau, nội soi can thiệp cầm máu dạ dày, tá tràng,...",
+            "Xem xét sử dụng thuốc ức chế bơm proton nếu người bệnh có biểu hiện gợi ý xuất huyết tiêu hóa trên hoặc có tiền sử viêm loét dạ dày tá tràng.",
+            "Xem xét sử dụng Vitamin K nếu người bệnh có biểu hiện suy gan nặng.",
+            "Báo bác sĩ ngay",
+            "Bù dịch đúng hướng dẫn",
+            "Mục tiêu: Tay chân ấm, mạch cổ tay rõ, Mạch và huyết áp trở về trị số bình thường so với tuổi, Thời gian làm đầy mao mạch < 2 giây, Lượng nước tiểu > 1ml/kg cân nặng/giờ. - Cân bệnh nhi, Đặt nằm đầu phẳng, chân kê cao, Xét nghiệm Hematocrit (Hct), Thở oxy qua gọng mũi 2-3 lít/phút, Thiết lập đường truyền tĩnh mạch lớn ở chi với kim luồn, Truyền dịch nhanh theo y lệnh, Theo dõi: Mạch, huyết áp, sờ tay chân 15 phút/lần khi đang sốc, sau đó 1 giờ/lần khi người bệnh ra sốc và thời gian theo dõi dăn ra khi người bệnh ổn định. Lượng nước tiểu 1 giờ/lần."
+        ],
+        "contraindications": [
+            "Không dùng Aspirin",
+            "Không dùng Aspirin, Analgin, Ibuprofen"
+        ]
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc Dengue kéo dài",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Dopamin 5-10μg/kg/phút",
+            "Dobutamin 3-10μg/kg/phút",
+            "Noradrenalin 0,05-0,3μg/kg/phút",
+            "Adrenalin 0,05-0,3 μg/kg/phút"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc Dengue nặng",
+        "clinical_signs": [
+            "Mạch nhanh",
+            "Huyết áp tụt"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Bù dịch nhanh",
+            "Truyền Ringer Lactate 15ml/kg/giờ trong 1 giờ",
+            "Truyền Ringer Lactate 10ml/kg/giờ trong 2 giờ",
+            "Truyền Ringer Lactate 6ml/kg/giờ trong 2 giờ",
+            "Truyền Ringer Lactate 3ml/kg/giờ trong 5-7 giờ",
+            "Truyền Ringer Lactate 1,5ml/kg/giờ trong 12 giờ"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc Dengue thể xuất huyết nặng",
+        "clinical_signs": [
+            "Mạch nhanh",
+            "Huyết áp tụt",
+            "HCT tăng > 20%",
+            "HCT < 35%"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Xử trí như xuất huyết nặng",
+            "Chỉ định truyền máu, chế phẩm máu"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc kéo dài thất bại",
+        "clinical_signs": [
+            "HCT tăng quá cao ≥ 50%",
+            "HCT ≤ 35%",
+            "Xuất huyết tiêu hóa nặng thất bại",
+            "Hôn mê/co giật",
+            "Suy hô hấp thất bại",
+            "Suy thận cấp",
+            "Suy gan cấp",
+            "HCT tiếp tục tăng sau bù dịch"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "CPT > 100ml/kg và thuốc vận mạch",
+            "Tăng co cơ tim",
+            "Lọc máu"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc mất máu cấp",
+        "clinical_signs": [
+            "HCT tăng",
+            "Tiểu cầu giảm"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc SXH",
+        "clinical_signs": [
+            "Mạch nhanh nhỏ",
+            "Huyết áp kẹt"
+        ],
+        "lab_tests": [
+            "HCT tăng"
+        ],
+        "treatments": [
+            "Truyền Ringer Lactate 5-7ml/kg/h"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin"
+        ]
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc SXHD",
+        "clinical_signs": [
+            "Huyết động không ổn định",
+            "HCT giảm nhanh (>20%) khi truyền dịch",
+            "Sốc không cải thiện sau khi truyền dịch nhanh 40-60ml/kg",
+            "HCT thấp khi vào sốc",
+            "Toan chuyển hóa kéo dài hoặc tiến triển xấu mặc dù huyết áp tâm thu bình thường",
+            "Mạch nhanh nhỏ",
+            "Huyết áp kẹt",
+            "Tiểu cầu giảm",
+            "HCT giảm nhanh"
+        ],
+        "lab_tests": [
+            "HCT tăng",
+            "Tiểu cầu giảm",
+            "PT/PTc > 1,5",
+            "Fibrinogen < 1g/l",
+            "HCT < 35%",
+            "HCT giảm nhanh trên 20% so với trị số đầu"
+        ],
+        "treatments": [
+            "Chỉ định truyền máu, chế phẩm máu",
+            "Truyền Ringer Lactate 20ml/kg/giờ trong 1 giờ",
+            "Truyền Ringer Lactate 10ml/kg/giờ x 1-2 giờ",
+            "Truyền Ringer Lactate 7,5ml/kg/giờ x 1-2 giờ",
+            "Truyền Ringer Lactate 5ml/kg/giờ x 3-4 giờ",
+            "Truyền Ringer Lactate 3ml/kg/giờ x 4-6 giờ",
+            "Truyền NaCl 0,9% 5ml/kg/giờ x 3-4 giờ",
+            "Truyền NaCl 0,9% 3ml/kg/giờ x 4-6 giờ",
+            "Truyền hồng cầu lắng 5-10ml/kg",
+            "Truyền Huyết tương tươi đông lạnh",
+            "Truyền kết tủa lạnh",
+            "Truyền tiểu cầu < 50.000/mm3 + xuất huyết nặng",
+            "Truyền tiểu cầu < 30.000/mm3 + chuẩn bị làm thủ thuật xâm lấn (trừ ca cấp cứu)",
+            "Truyền HCT 35 - 40%",
+            "Xử trí cầm máu: băng ép tại chỗ, nhét bấc hoặc gạc mũi trước/sau, nội soi can thiệp cầm máu dạ dày, tá tràng,...",
+            "Xem xét sử dụng thuốc ức chế bơm proton nếu người bệnh có biểu hiện gợi ý xuất huyết tiêu hóa trên hoặc có tiền sử viêm loét dạ dày tá tràng",
+            "Xem xét sử dụng Vitamin K nếu người bệnh có biểu hiện suy gan nặng",
+            "Xem xét truyền albumin 1g/kg TTM trong 4-6 giờ"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin"
+        ]
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc SXHD nặng",
+        "clinical_signs": [
+            "Mạch nhanh nhỏ",
+            "Huyết áp kẹt",
+            "Mạch nhanh",
+            "Huyết áp còn kẹt hoặc huyết áp hạ",
+            "CVP ≤ 15cmH20",
+            "CVP > 15cmH2O, Hct cao kèm sức co bóp cơ tim bình thường",
+            "CVP > 15cmH2O kèm sức co cơ tim giảm"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Dùng bơm tiêm to bơm Ringer lactate hoặc NaCl 0,9% 20ml/kg cân nặng trong 15 phút",
+            "Nếu cải thiện lâm sàng và Hct giảm ≤10% so với ban đầu, giảm tốc độ truyền CPT 7,5ml/kg/giờ trong 1-2 giờ → 5ml/kg/giờ trong 1-2 giờ",
+            "Nếu ra sốc và Hct bình thường, chuyển sang truyền Ringer lactate hoặc NaCl 0,9% 5ml/kg/giờ trong 2-4 giờ → 2-3ml/kg/giờ trong 24-36 giờ",
+            "Xem xét ngưng dịch sau 24-48 giờ nếu mạch, huyết áp, Hct bình thường hoặc nước tiểu ≥0,5ml/kg/giờ",
+            "Dùng bơm tiêm to bơm CPT 15-20ml/kg cân nặng/giờ",
+            "Nếu cải thiện lâm sàng, xử trí như trên; nếu không cải thiện lâm sàng, kiểm tra Hct:",
+            "Nếu Hct cao hay >40%, truyền CPT 10-20ml/kg/giờ, nếu cải thiện lâm sàng, xử trí như trên; nếu còn sốc (sốc thất bại bù dịch):",
+            "Hội chẩn khoa, hội chẩn bệnh viện hoặc hội chẩn tuyến trên",
+            "Điều trị toan, xuất huyết, hạ đường huyết, hạ Calci máu nếu có",
+            "Xét nghiệm Hct, đo áp lực tĩnh mạch trung tâm (CVP), đo HA động mạch xâm lấn và đánh giá chức năng tim nếu được",
+            "Transmit CPT 10-20ml/kg/giờ hoặc đổi sang truyền albumin 5% khi tổng lượng CPT ≥ 60ml/kg và đang chống sốc CPT ≥ 5-10ml/kg/giờ kèm albumin < 2g/dL hoặc người bệnh suy gan nặng, suy thận, ARDS",
+            "Thử dịch truyền với CPT 5-10ml/kg/giờ, sau đó nếu cải thiện sẽ truyền CPT 5ml/kg/giờ",
+            "Nếu có dấu hiệu quá tải, ngưng dịch và cho thuốc tăng co cơ tim Dobutamin liều 3-10µg/kg/phút",
+            "Transmit Dopamin liều 5-10 µg/kg/phút có thể kết hợp truyền CPT, nếu có dấu hiệu quá tải, ngưng dịch và cho thuốc tăng co cơ tim Dobutamin liều 3-10µg/kg/phút, nếu còn sốc kèm giảm sức co cơ tim thì phối hợp thêm Adrenaline liều 0,05-0,3µg/kg/phút hoặc phối hợp Noradrenaline liều 0,05-1µg/kg/phút trong trường hợp giảm kháng lực mạch máu"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốc SXHD, Sốc SXHD nặng",
+        "clinical_signs": [
+            "Thoát huyết tương nặng dẫn tới Sốc SXHD, Sốc SXHD nặng"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốt Dengue có dấu hiệu cảnh báo",
+        "clinical_signs": [
+            "Lừ đừ",
+            "Không uống được nước",
+            "Nôn ói nhiều",
+            "Đau bụng nhiều",
+            "Có dấu hiệu mất nước",
+            "Hct tăng cao"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Truyền Ringer Lactate, Ringer Acetate hoặc NaCl 0,9% 6-7ml/kg/giờ trong 1-3 giờ, sau đó 5ml/kg/giờ trong 2-4 giờ",
+            "Nếu mạch, HA ổn định, Hct giảm, nước tiểu ≥ 0,5-1ml/kg/giờ, giảm tốc độ truyền Ringer Lactate, Ringer Acetate hoặc NaCl 0,9% 3ml/kg/giờ trong 2-4 giờ",
+            "Nếu lâm sàng tiếp tục cải thiện, có thể ngưng dịch sau 24-48 giờ",
+            "Nếu mạch nhanh, HA tụt hoặc kẹt, Hct tăng: Điều trị toan, xuất huyết, hạ đường huyết, hạ calci huyết nếu có và truyền dịch tiếp tục",
+            "Nếu tổng dịch truyền > 60ml/kg: chuyển sang cao phân tử truyền tĩnh mạch 10-20ml/kg/giờ trong 1 giờ",
+            "Nếu tổng dịch truyền ≤ 60ml/kg: tăng tốc độ truyền Ringer Lactate, Ringer Acetate hoặc NaCl 0,9% 10-20ml/kg/giờ trong 1 giờ"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin"
+        ]
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốt Dengue có dấu hiệu cảnh báo kèm chi lạnh (mát), mạch nhanh, HA bình thường",
+        "clinical_signs": [
+            "Mạch nhanh",
+            "HA bình thường",
+            "Chi lạnh (mát)"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Truyền Ringer Lactate, Ringer Acetate hoặc NaCl 0,9% 10ml/kg/giờ trong 1 giờ, sau đó đánh giá lại"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốt Dengue nặng",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Chuẩn bị các dịch truyền sau: Ringer Lactate, Ringer Acetate, NaCl 0,9%, Dung dịch cao phân tử, Dung dịch albumin",
+            "Thở oxy qua gọng mũi 1-6 lít/phút, tất cả người bệnh có sốc cần thở oxy gọng kính"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốt do bệnh lý sốt xuất huyết Dengue hoặc bội nhiễm",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Đo nhiệt độ ở nách",
+            "Mặc quần áo mỏng, vải sợi bông và nằm nơi thoáng mát"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốt xuất huyết Dengue có xuất huyết tiêu hóa",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Nhịn ăn",
+            "Nuôi bằng đường tĩnh mạch cho đến khi hết xuất huyết tiêu hóa"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốt xuất huyết Dengue không biến chứng",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Hạn chế ăn kiêng",
+            "Chế độ ăn chủ yếu là sữa, nước đường, nước trái cây",
+            "Tăng dần năng lượng bằng cháo thịt, súp, sữa chua, phở, cơm mềm có canh"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Sốt xuất huyết Dengue thể não",
+        "clinical_signs": [
+            "Rối loạn tri giác",
+            "Co giật",
+            "Dấu thần kinh khu trú"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Đầu cao 30°",
+            "Thở oxy nếu có giảm oxy máu",
+            "Đặt nội khí quản bảo vệ đường thở các trường hợp mê sâu",
+            "Chống co giật (nếu có)",
+            "Điều trị hạ đường huyết, rối loạn điện giải, kiềm toan (nếu có)",
+            "Hạ sốt (nếu có)",
+            "Thở oxy",
+            "Diazepam 0,2mg/kg tĩnh mạch chậm",
+            "Phenobarbital 10-20mg/kg TTM trong 15-30 phút",
+            "Dextrose 30% 1-2ml/kg (trẻ < 1 tuổi Dextrose 10% 2ml/kg)",
+            "Phenobarbital 10-20mg/kg TTM",
+            "Điều chỉnh rối loạn điện giải - toan kiềm",
+            "Mannitol 20% 0,5g/kg/lần TTM nhanh 30 phút (lặp lại mỗi 8 giờ)",
+            "Đặt nội khí quản thở máy (tăng thông khí giữ PaCO2 30 - 35mmHg)",
+            "Thuốc hạ nhiệt đặt hậu môn paracetamol 10-15mg/kg/lần, ngày 4 lần nếu có sốt"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Tiêu chảy, xuất huyết",
+        "clinical_signs": [
+            "Tay chân lạnh",
+            "Mạch cổ tay nhanh nhỏ",
+            "Thời gian làm đầy mao mạch chậm >2 giây",
+            "Huyết áp tụt hoặc kẹt"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Tràn dịch",
+        "clinical_signs": [
+            "Hct cao",
+            "Huyết áp kẹt",
+            "Mạch nhanh nhỏ"
+        ],
+        "lab_tests": [
+            "HCT tăng",
+            "Tiểu cầu giảm"
+        ],
+        "treatments": [
+            "Truyền Ringer Lactate 5-7ml/kg/h",
+            "Giảm tốc độ dịch truyền",
+            "Nằm đầu cao",
+            "Thở NCPAP hoặc thở máy không xâm lấn",
+            "Sử dụng vận mạch dopamine hoặc dobutamine",
+            "Xem xét furosemide vào N7 của bệnh"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Trẻ hết sốt nhưng bứt rứt, lừ đừ, tay chân lạnh, vã mồ hôi",
+        "clinical_signs": [
+            "Nôn nhiều, đau bụng"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Đưa trẻ đến bệnh viện cấp cứu ngay"
+        ],
+        "contraindications": [
+            "Không cho trẻ uống aspirin"
+        ]
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Tái sốc",
+        "clinical_signs": [
+            "Tái sốc nhiều lần (≥ 2 lần)",
+            "HCT vẫn cao",
+            "HCT đột ngột giảm nhanh"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Đo CVP để bù dịch theo CVP hoặc dùng vận mạch nếu CVP cao",
+            "Theo dõi sát mạch, huyết áp, nhịp thở, da, niêm mạc, tìm xuất huyết nội để chỉ định truyền máu kịp thời",
+            "Thận trọng khi tiến hành thủ thuật tại các vị trí khó cầm máu như tĩnh mạch cổ, tĩnh mạch dưới đòn, động mạch bẹn, đùi"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Tổn thương gan cấp",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Chống sốc tích cực nếu có",
+            "Hô hấp hỗ trợ sớm nếu sốc không cải thiện",
+            "Theo dõi điện giải đồ, đường huyết nhanh, khí máu động mạch, amoniac máu, lactate máu, đông máu toàn bộ mỗi 4-6 giờ để điều chỉnh kịp thời các bất thường nếu có"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Tổn thương gan nặng, suy gan cấp",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Tránh dùng các thuốc gây tổn thương gan",
+            "Điều trị hạ đường huyết, rối loạn điện giải nếu có",
+            "Điều chỉnh rối loạn đông máu theo chỉ định",
+            "Kháng sinh khi nghi ngờ nhiễm khuẩn"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Tổn thương thận cấp",
+        "clinical_signs": [
+            "Tiểu ít < 0,5ml/kg/giờ",
+            "Creatinine máu tăng ≥ 1,5-2 lần trị số bình thường",
+            "Độ thanh thải Creatinine (eCrCl) giảm ≥ 50%"
+        ],
+        "lab_tests": [
+            "Creatinine máu tăng ≥ 0,3 mg% (26,5 umol/L) trong 48 giờ",
+            "Creatinine máu tăng ≥ 1,5 lần giá trị nền hoặc trong 07 ngày trước đó",
+            "Nước tiểu < 0,5ml/kg/giờ trong 06 giờ"
+        ],
+        "treatments": [
+            "Chống sốc nếu có",
+            "Cân bằng dịch xuất - nhập",
+            "Tránh thuốc gây tổn thương thận",
+            "Xem xét chỉ định điều trị thay thế thận trong các trường hợp",
+            "Chống sốc: dịch truyền, vận mạch",
+            "Hạn chế dịch nhập",
+            "Tránh thuốc tổn thương thận",
+            "Theo dõi cân nặng và cân bằng dịch xuất - nhập",
+            "Chọc dẫn lưu ổ bụng khi có tăng áp lực ổ bụng nặng",
+            "Thận nhân tạo (lọc máu chu kỳ) khi suy thận cấp kèm quá tải hoặc hội chứng ure huyết, toan chuyển hóa nặng, tăng kali máu thất bại điều trị nội khoa ở bệnh nhân huyết động ổn định",
+            "Lọc máu liên tục khi suy thận cấp hoặc tổn thương đa cơ quan ở bệnh nhân huyết động không ổn định"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Viêm cơ tim, suy tim",
+        "clinical_signs": [
+            "Đau ngực",
+            "Khó thở",
+            "Tim nhanh",
+            "Sốc"
+        ],
+        "lab_tests": [
+            "Thay đổi điện tâm đồ",
+            "Hình ảnh học (siêu âm, xquang)",
+            "X quang ngực",
+            "Đo điện tâm đồ",
+            "Siêu âm tim",
+            "Điện giải đồ"
+        ],
+        "treatments": [
+            "Đo CVP hoặc các biện pháp đánh giá huyết động khác để hỗ trợ điều chỉnh huyết động nếu có rối loạn",
+            "Sử dụng vận mạch Noradrenalin, Dobutamin, Dopamine, Adrenalin",
+            "Xem xét chỉ định ECMO",
+            "Noradrenalin",
+            "Dobutamin",
+            "Dopamine",
+            "Adrenalin",
+            "Milrinon",
+            "ECMO"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Xuất huyết da, niêm mạc",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Lấy máu tĩnh mạch chi (tránh tĩnh mạch đùi)",
+            "Tránh tiêm bắp",
+            "Thực hiện tiêm tĩnh mạch ở chi với kim luồn",
+            "Theo dõi nơi tiêm"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Xuất huyết nặng",
+        "clinical_signs": [
+            "Chảy máu mũi nặng",
+            "Xuất huyết âm đạo nặng",
+            "Xuất huyết trong cơ và phần mềm",
+            "Xuất huyết đường tiêu hóa và nội tạng",
+            "Xuất huyết đường tiêu hóa",
+            "Suy đa phủ tạng"
+        ],
+        "lab_tests": [
+            "Rối loạn đông máu"
+        ],
+        "treatments": [
+            "Nghiên cứu các phương pháp cầm máu"
+        ],
+        "contraindications": [
+            "Aspirin",
+            "Ibuprofen",
+            "Corticoid",
+            "Không dùng Aspirin",
+            "Không dùng corticoid",
+            "Không dùng ibuprofen"
+        ]
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Đau bụng nhiều, vật vã, lừ đừ, li bì, Gan to > 2cm, Nôn ói, Biểu hiện thoát huyết tương, Xuất huyết",
+        "clinical_signs": [
+            "Tràn dịch màng phổi, mô kẽ, màng bụng, phù nề mi mắt",
+            "Nốt xuất huyết rải rác hoặc chấm xuất huyết",
+            "Xuất huyết niêm mạc như chảy máu chân răng, chảy máu mũi, nôn ra máu, tiêu phân đen hoặc máu, xuất huyết âm đạo hoặc tiểu máu",
+            "Chảy máu mũi nặng (cần nhét bấc hoặc gạc cầm máu)",
+            "Xuất huyết âm đạo nặng",
+            "Xuất huyết trong cơ và phần mềm",
+            "Xuất huyết đường tiêu hóa và nội tạng (phổi, não, gan, lách, thận)"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nguy hiểm",
+        "severity": "Đau bụng nhiều, vật vã, lừ đừ, li bì, Gan to > 2cm, Nôn ói, Xuất huyết dưới da, Xuất huyết niêm mạc, Xuất huyết nặng",
+        "clinical_signs": [
+            "Đau bụng nhiều và liên tục hoặc tăng cảm giác đau nhất là ở vùng gan",
+            "Gan to > 2cm dưới bờ sườn, có thể đau",
+            "Nôn ói",
+            "Xuất huyết dưới da: Nốt xuất huyết rải rác hoặc chấm xuất huyết thường ở mặt trước hai cẳng chân và mặt trong hai cánh tay, bụng, đùi, mạn sườn hoặc mảng bầm tím",
+            "Xuất huyết niêm mạc như chảy máu chân răng, chảy máu mũi, nôn ra máu, tiêu phân đen hoặc máu, xuất huyết âm đạo hoặc tiểu máu",
+            "Xuất huyết nặng: chảy máu mũi nặng (cần nhét bấc hoặc gạc cầm máu), xuất huyết âm đạo nặng, xuất huyết trong cơ và phần mềm, xuất huyết đường tiêu hóa và nội tạng (phổi, não, gan, lách, thận), thường kèm theo tình trạng sốc, giảm tiểu cầu, thiếu oxy mô và toan chuyển hóa"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn nhẹ",
+        "severity": "Sốt",
+        "clinical_signs": [
+            "Sốt cao",
+            "Mất nước"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Uống nhiều nước",
+            "Uống Oresol",
+            "Uống paracetamol theo chỉ định"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin"
+        ]
+    },
+    {
+        "phase": "Giai đoạn phòng ngừa",
+        "severity": "Chưa có",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Diệt muỗi, diệt lăng quăng"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn sốc",
+        "severity": "Sốc sốt xuất huyết Dengue",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Chọn kim luồn 20-22G",
+            "Chuẩn bị chai dịch truyền",
+            "Cắt băng dính cố định kim luồn"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn sốt",
+        "severity": "Sốt cao đột ngột, liên tục",
+        "clinical_signs": [
+            "Sốt cao đột ngột, liên tục",
+            "Nhức đầu, chán ăn, buồn nôn",
+            "Da sung huyết",
+            "Đau cơ, đau khớp, nhức hai hố mắt",
+            "Nghiệm pháp dây thắt dương tính",
+            "Chấm xuất huyết ở dưới da, chảy máu chân răng hoặc chảy máu mũi"
+        ],
+        "lab_tests": [
+            "Hematocrit (Hct) bình thường",
+            "Số lượng tiểu cầu bình thường hoặc giảm dần (nhưng còn trên 100.000/mm3)",
+            "Số lượng bạch cầu thường giảm"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [
+            "Sốt cao liên tục, không giảm mặc dù đã uống thuốc hạ sốt",
+            "Xuất hiện các triệu chứng xuất huyết như chấm hay mảng xuất huyết ở da, chảy máu cam, chảy máu răng miệng hoặc rong kinh (ở phụ nữ)",
+            "Biểu hiện tiêu hóa: biểu hiện tiêu hóa hay gặp trong sốt xuất huyết Dengue người lớn như nôn, tiêu chảy, do vậy cần ghi chú số lần nôn, số lượng và tính chất của dịch nôn, phân tiêu chảy",
+            "Theo dõi tổng kê lượng nước xuất-nhập: Nước nhập: Nước người bệnh uống được, thức ăn người bệnh ăn được (lỏng và đặc), lượng dịch truyền vào (nếu có). Nước xuất gồm: Nước tiểu, phân, dịch nôn, máu xuất huyết. Ghi nhận tất cả các thông số trên vào phiếu chăm sóc và theo dõi điều dưỡng. Báo bác sĩ điều trị ngay nếu thấy bất cứ triệu chứng nào trong số các triệu chứng bất thường kể trên.",
+            "Theo dõi xét nghiệm: Theo dõi, lấy kết quả và báo ngay bác sĩ các xét nghiệm...",
+            "Biểu hiện xuất huyết nội (nôn ra máu, đi ngoài ra máu, tiểu ra máu)"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Dấu hiệu cảnh báo",
+        "clinical_signs": [
+            "Người bệnh thấy khó chịu hơn",
+            "Không ăn, uống được",
+            "Nôn ói nhiều",
+            "Đau bụng nhiều",
+            "Tay chân lạnh, ẩm",
+            "Mệt lả, bứt rứt",
+            "Chảy máu mũi, miệng hoặc xuất huyết âm đạo",
+            "Không tiểu trên 6 giờ",
+            "Biểu hiện hành vi thay đổi"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Hematocrit ≤ 35% hoặc giảm 20% so với ban đầu",
+        "clinical_signs": [],
+        "lab_tests": [
+            "HCT tăng",
+            "Tiểu cầu giảm"
+        ],
+        "treatments": [
+            "Truyền hồng cầu lắng 5ml/kg hoặc máu toàn phần 10ml/kg",
+            "Truyền CPT 10ml/kg/giờ"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Không",
+        "clinical_signs": [
+            "Tại nơi tiêm: phù, sưng đỏ",
+            "Dây truyền dịch: Có bị gập, có bọt khí",
+            "Dây truyền dịch: Có rỉ dịch chỗ nối",
+            "Tốc độ dịch chảy: Có đúng theo y lệnh"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Nhiễm trùng",
+        "clinical_signs": [
+            "Nơi tiêm không đỏ, không có mủ",
+            "Bệnh nhi không sốt"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Sốt cao liên tục",
+        "clinical_signs": [
+            "Sốt cao không giảm mặc dù đã uống thuốc hạ sốt"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Sốt Dengue",
+        "clinical_signs": [
+            "Người bệnh thấy khó chịu hơn mặc dù sốt giảm hoặc hết sốt",
+            "Không ăn, uống được",
+            "Nôn ói nhiều",
+            "Đau bụng nhiều",
+            "Chảy máu mũi, miệng hoặc xuất huyết âm đạo",
+            "Không tiểu trên 6 giờ"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Triệu chứng hồi phục",
+        "clinical_signs": [
+            "Phát ban hồi phục"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn theo dõi",
+        "severity": "Triệu chứng xuất huyết",
+        "clinical_signs": [
+            "Chấm hay mảng xuất huyết ở da",
+            "Chảy máu cam",
+            "Chảy máu răng miệng hoặc rong kinh (ở phụ nữ)"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn tiến hành",
+        "severity": "Không",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Mang dụng cụ đến giường Người bệnh",
+            "Treo chai dịch truyền lên trụ treo",
+            "Kiểm tra họ tên, số giường, số phòng của Người bệnh",
+            "Chọn vị trí tiêm",
+            "Buộc dây ga-rô",
+            "Sát trùng tay nhanh, đeo găng",
+            "Sát trùng nơi tiêm",
+            "Giữ kim vững, đâm kim qua da vào tĩnh mạch",
+            "Mở ga-rô",
+            "Tay phải từ từ đẩy kim vào lòng tĩnh mạch",
+            "Tay trái rút nhẹ nhàng nòng kim ngược ra",
+            "Ấn trên đường đi của tĩnh mạch đang chích",
+            "Rút bỏ nòng kim",
+            "Gắn ống tiêm có chứa NaCl 0,9%",
+            "Cố định kim",
+            "Ghi ngày giờ, tên điều dưỡng",
+            "Gắn dây truyền dịch vào kim",
+            "Điều chỉnh tốc độ dịch truyền theo y lệnh",
+            "Cho người bệnh nằm nghỉ",
+            "Thu dọn dụng cụ, ghi hồ sơ bệnh án"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn truyền dịch",
+        "severity": "Nhiễm trùng",
+        "clinical_signs": [
+            "Nơi tiêm không đỏ",
+            "Không có mủ",
+            "Người bệnh không sốt"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn truyền dịch",
+        "severity": "Nhiễm trùng toàn thân",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Thực hiện tiêm tĩnh mạch đúng kỹ thuật, bảo đảm vô trùng",
+            "Truyền dịch đúng kỹ thuật, bảo đảm vô trùng và thay chai, dây dịch truyền hàng ngày",
+            "Bảo đảm vô trùng khi cho thuốc qua đường tĩnh mạch",
+            "Thay băng nơi tiêm hàng ngày hoặc khi bị ướt, bẩn"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn tái hấp thu dịch",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": [
+            "Người bệnh đã được truyền dịch quá nhiều"
+        ]
+    },
+    {
+        "phase": "Giai đoạn tái sốc",
+        "severity": "Tái sốc",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Tái truyền CPT"
+        ],
+        "contraindications": [
+            "Hematocrit tăng cao trở lại (>10% so với trị số ngay trước đó) kèm huyết động học không ổn định"
+        ]
+    },
+    {
+        "phase": "Giai đoạn xử trí sự cố",
+        "severity": "Tắc kim, Thoát mạch, Nhiễm trùng tại chỗ, Rét run khi tiêm truyền",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Dùng ống kim tiêm có chứa NaCl 0,9% rút ngược ra",
+            "Ngừng truyền, tiêm lại chỗ khác",
+            "Ngừng truyền, rút bỏ kim, đổi vị trí tiêm, cấy đầu kim"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Giảm thể tích tuần hoàn",
+        "clinical_signs": [
+            "Không dấu hiệu mất nước",
+            "Tay chân ấm",
+            "Mạch cổ tay rõ",
+            "Mạch và huyết áp bình thường so với tuổi",
+            "Lượng nước tiểu >1 ml/kg cân nặng/giờ"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Hướng dẫn bà mẹ cho trẻ uống nhiều nước sôi để nguội; nước cam, chanh; Oresol"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Không cải thiện lâm sàng",
+        "clinical_signs": [
+            "Mạch nhanh",
+            "Huyết áp tụt hoặc kẹt"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Lặp lại truyền CPT 10-20ml/kg/giờ trong 1 giờ",
+            "Xét nghiệm khí máu tĩnh mạch",
+            "Điều trị toan, xuất huyết, hạ đường huyết, hạ Calci huyết nếu có",
+            "Đo HA động mạch xâm lấn",
+            "Đo áp lực tĩnh mạch trung tâm (CVP) và xử trí như sốc SXHD nặng"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Nguy cơ thừa dịch do truyền dịch nhiều và nhanh so với hướng dẫn",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Thực hiện chính xác tốc độ dịch truyền theo y lệnh",
+            "Theo dõi sát mạch, huyết áp và lượng nước tiểu",
+            "Theo dõi dấu hiệu ho, khó thở, quan sát tĩnh mạch cổ",
+            "Đo áp lực tĩnh mạch trung tâm (ALTMTT)"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Nguy cơ xuất huyết da, niêm mạc do rối loạn đông máu trong sốt xuất huyết Dengue",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Theo dõi nơi tiêm",
+            "Khi nơi tiêm sưng đỏ: - Rút bỏ kim - Thực hiện y lệnh: xét nghiệm (công thức máu, cấy máu, cấy đầu kim luồn), thuốc kháng sinh"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Sốt Dengue",
+        "clinical_signs": [
+            "Nhiệt độ nách > 37,5°C",
+            "Sốt cao ≥ 39°C",
+            "Biến chứng co giật do sốt"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Đeo quần áo mỏng, vải sợi bông",
+            "Nằm nơi thoáng mát",
+            "Dùng paracetamol theo y lệnh",
+            "Lau mát bằng nước ấm khi sốt cao ≥ 39°C mà chưa đáp ứng paracetamol hoặc khi có biến chứng co giật do sốt"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin, Ibuprofen"
+        ]
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Sốt do bệnh lý sốt xuất huyết Dengue hoặc bội nhiễm",
+        "clinical_signs": [
+            "Nhiệt độ > 37°C"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Mặc quần áo mỏng, vải sợi bông",
+            "Nằm nơi thoáng mát",
+            "Uống nhiều nước đun sôi để nguội, Oresol, sữa",
+            "Dùng paracetamol theo y lệnh",
+            "Lau mát bằng nước ấm khi sốt cao ≥ 39°C mà chưa đáp ứng paracetamol hoặc khi có biến chứng co giật do sốt"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin"
+        ]
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Sốt xuất huyết Dengue",
+        "clinical_signs": [
+            "Nằm thoải mái"
+        ],
+        "lab_tests": [
+            "HCT",
+            "Tiểu cầu"
+        ],
+        "treatments": [
+            "Đường truyền tĩnh mạch"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị",
+        "severity": "Thiếu dịch",
+        "clinical_signs": [
+            "Biếng ăn, uống"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Hướng dẫn bà mẹ chế độ ăn phù hợp theo tuổi",
+            "Hướng dẫn bà mẹ cho trẻ uống thêm nhiều nước đun sôi để nguội, nước cam, chanh, Oresol"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị nội trú",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [
+            "Dấu hiệu sinh tồn được theo dõi 3 hoặc 6 giờ",
+            "Toàn trạng: Tỉnh táo, tiếp xúc tốt, giọng nói rõ ràng, vẻ mặt hơi lanh lợi hoặc lừ đừ, mệt mỏi",
+            "Da, niêm mạc: Chi ấm, móng tay hồng hay da và đầu chi tái, ẩm mồ hôi, chi mát lạnh. Niêm mạc mắt sung huyết, môi đỏ. Thời gian làm đầy mao mạch < 2 giây",
+            "Kiểm tra và theo dõi dấu hiệu xuất huyết da, niêm mạc: Chấm xuất huyết, mảng bầm tím hay khối máu tụ xuất hiện tự nhiên hay sau sang chấn, sau tiêm chích. Các biểu hiện xuất huyết đó tăng thêm, nếu có mức độ tăng nhanh hay chậm. Ngoài ra có thể chảy máu mũi, răng, miệng. + Biểu hiện xuất huyết nội như nôn ra máu, đi ngoài ra máu, tiểu ra máu"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn điều trị triệu chứng",
+        "severity": "Sốt cao",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Thuốc hạ nhiệt Paracetamol 10-15mg/kg/lần, cách 4-6 giờ",
+            "Khuyến khích uống nhiều nước oresol, nước trái cây, nước cháo loãng với muối"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin, Analgin, Ibuprofen"
+        ]
+    },
+    {
+        "phase": "Giai đoạn điều trị triệu chứng",
+        "severity": "Sốt Dengue",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Thuốc hạ nhiệt Paracetamol 10-15mg/kg cân nặng/lần, cách nhau mỗi 4-6 giờ",
+            "Khuyến khích uống nhiều nước oresol, nước trái cây, nước cháo loãng với muối"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin, Analgin, Ibuprofen"
+        ]
+    },
+    {
+        "phase": "Giai đoạn ổn định",
+        "severity": "Chưa phân loại",
+        "clinical_signs": [
+            "mạch giảm",
+            "Huyết áp bình thường",
+            "hiệu áp > 20mmHg"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn ổn định",
+        "severity": "Huyết động học ổn định",
+        "clinical_signs": [
+            "Tỉnh táo",
+            "Tay chân ấm",
+            "CRT bình thường < 2 giây",
+            "Mạch, HA bình thường theo tuổi",
+            "MAP ≥ 65mmHg",
+            "Nước tiểu > 0,5ml/kg/giờ",
+            "ALTMTT 10-15 cmH2O"
+        ],
+        "lab_tests": [
+            "Hematocrit giảm về trị số bình thường hoặc hết cô đặc máu",
+            "SCvO2 ≥ 70%",
+            "Lactate máu bình thường < 2mmol/L",
+            "Khí máu pH và HCO3- bình thường"
+        ],
+        "treatments": [
+            "Chuyển từ CPT sang dung dịch điện giải",
+            "Tốc độ cao phân tử 5ml/kg/giờ trong 1-2 giờ"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Giai đoạn ổn định",
+        "severity": "Tỉnh táo",
+        "clinical_signs": [
+            "Huyết động học ổn định",
+            "Tay chân ấm",
+            "CRT bình thường < 2 giây",
+            "Mạch, HA bình thường theo tuổi",
+            "Huyết áp trung bình (MAP)"
+        ],
+        "lab_tests": [
+            "Hematocrit giảm về trị số bình thường hoặc hết cô đặc máu",
+            "SCvO2 ≥ 70% *(±)",
+            "Lactate máu bình thường < 2mmol/L *(±)",
+            "Khí máu pH và HCO3- bình thường *(±)"
+        ],
+        "treatments": [
+            "Truyền RL hoặc NaCL 0,9% tốc độ ít nhất bằng với tốc độ cao phân tử đang điều trị trong 2 giờ sau đó sẽ giảm tốc độ nếu đáp ứng tốt"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốc Dengue",
+        "severity": "Cảnh báo",
+        "clinical_signs": [],
+        "lab_tests": [
+            "HCT tiếp tục tăng"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốc Dengue",
+        "severity": "Hematocrit tăng quá cao ≥ 50% hoặc ≤ 35%",
+        "clinical_signs": [],
+        "lab_tests": [
+            "HCT tăng quá cao ≥ 50% hoặc ≤ 35%"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốc Dengue",
+        "severity": "Sốc Dengue",
+        "clinical_signs": [
+            "Mạch nhanh nhỏ",
+            "Huyết áp kẹt"
+        ],
+        "lab_tests": [
+            "HCT tăng",
+            "Tiểu cầu giảm"
+        ],
+        "treatments": [
+            "Truyền Ringer Lactate 5-7ml/kg/h"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin"
+        ]
+    },
+    {
+        "phase": "Sốc Dengue",
+        "severity": "Sốc Dengue nặng",
+        "clinical_signs": [
+            "Mạch nhanh nhỏ",
+            "Huyết áp kẹt"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốc Dengue",
+        "severity": "Tổn thương gan",
+        "clinical_signs": [],
+        "lab_tests": [
+            "Men gan ≥ 400U/L"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốc SXHD",
+        "severity": "Suy hô hấp",
+        "clinical_signs": [
+            "thở nhanh",
+            "rút lõm ngực",
+            "tím tái",
+            "SpO2 < 92%"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "thở oxy",
+            "NCPAP",
+            "thở máy"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốc SXHD",
+        "severity": "Suy hô hấp cấp",
+        "clinical_signs": [
+            "thở nhanh",
+            "rút lõm ngực",
+            "tím tái",
+            "SpO2 < 92%"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "thở oxy",
+            "điều trị quá tải, phù phổi",
+            "natri bicarbonate 4,2% 2ml/kg tĩnh mạch",
+            "thở không xâm lấn áp lực dương liên tục qua mũi (NCPAP) hoặc thở máy không xâm lấn"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốc sốt xuất huyết Dengue",
+        "severity": "Sốc sốt xuất huyết Dengue",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Chú ý theo dõi đường huyết",
+            "Điều trị Glucose ưu trương tĩnh mạch khi có hạ đường huyết",
+            "Khi bệnh nhân ra sốc, cho ăn sớm qua đường miệng với thức ăn lỏng"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốt xuất huyết Dengue",
+        "severity": "Chẩn đoán căn nguyên vi rút Dengue",
+        "clinical_signs": [],
+        "lab_tests": [
+            "Xét nghiệm nhanh: tìm kháng nguyên NS1",
+            "Xét nghiệm ELISA: tìm kháng thể IgM, IgG từ ngày thứ 5 của bệnh",
+            "Xét nghiệm PCR, phân lập vi rút: lấy máu trong giai đoạn sốt"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Sốt xuất huyết Dengue",
+        "severity": "Sốt",
+        "clinical_signs": [
+            "Sốt cao ≥ 38,5°C"
+        ],
+        "lab_tests": [],
+        "treatments": [
+            "Cho thuốc hạ nhiệt (Paracetamol) 10-15mg/kg/lần, cách nhau 4-6 giờ"
+        ],
+        "contraindications": [
+            "Không dùng Aspirin, Analgin, Ibuprofen"
+        ]
+    },
+    {
+        "phase": "Sốt xuất huyết Dengue",
+        "severity": "Triệu chứng",
+        "clinical_signs": [
+            "Phát ban hồi phục hoặc ngứa ngoài da",
+            "Nhịp tim chậm, không đều, suy hô hấp do quá tải dịch truyền",
+            "Hematocrit trở về bình thường hoặc thấp hơn do pha loãng máu",
+            "Số lượng bạch cầu máu tăng lên sớm sau giai đoạn hạ sốt",
+            "Số lượng tiểu cầu dần trở về bình thường, muộn hơn so với bạch cầu",
+            "AST, ALT giảm"
+        ],
+        "lab_tests": [],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Tiêu chuẩn cho người bệnh xuất viện",
+        "severity": "Không khó thở",
+        "clinical_signs": [
+            "Không khó thở"
+        ],
+        "lab_tests": [
+            "AST, ALT <400 U/L",
+            "Hct trở về bình thường",
+            "Tiểu cầu >50.000/mm3"
+        ],
+        "treatments": [],
+        "contraindications": []
+    },
+    {
+        "phase": "Tổn thương gan, suy gan cấp",
+        "severity": "Nặng hoặc suy gan cấp",
+        "clinical_signs": [],
+        "lab_tests": [
+            "AST, ALT ≥ 1000U/L, có hoặc không có bệnh lý não gan."
+        ],
+        "treatments": [
+            "Hỗ trợ hô hấp khi cần",
+            "Điều trị hạ đường huyết nếu có",
+            "Hạn chế dịch 2/3-3/4 nhu cầu",
+            "Điều trị rối loạn điện giải nếu có",
+            "Vitamin K1 1mg/kg tĩnh mạch chậm, tối đa 20mg/ngày",
+            "Điều trị rối loạn đông máu: truyền huyết tương đông lạnh",
+            "Kháng sinh khi nghi ngờ nhiễm khuẩn."
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Tổn thương gan, suy gan cấp",
+        "severity": "Trung bình",
+        "clinical_signs": [],
+        "lab_tests": [
+            "AST, ALT 400 - < 1000U/L"
+        ],
+        "treatments": [
+            "Nhập viện điều trị",
+            "Tránh dùng các thuốc hại gan",
+            "Truyền dịch nếu có chỉ định: NaCl 0,9% hoặc Ringer acetate, Dextrosaline. Hạn chế dùng dung dịch HES."
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Điều trị toan chuyển hóa, hạ đường huyết, hạ Calci huyết, hạ Natri máu",
+        "severity": "Toan chuyển hóa",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Nếu có điều kiện thì đo các khí trong máu ở người bệnh sốc nặng và người bệnh sốc không đáp ứng nhanh chóng với điều trị"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Điều trị xuất huyết nặng",
+        "severity": "Xuất huyết nội",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Truyền máu: Hct ≤ 35% kèm sốc thất bại hoặc đáp ứng kém với bù dịch ≥ 40ml/kg",
+            "Hct giảm nhanh > 20% kèm sốc thất bại hoặc đáp ứng kém với bù dịch",
+            "Hct ≤ 40% kèm đang xuất huyết ồ ạt",
+            "Truyền hồng cầu lắng hoặc máu toàn phần trong đó ưu tiên hồng cầu lắng",
+            "Truyền huyết tương tươi đông lạnh: Rối loạn đông máu nặng (PT > 2 lần bình thường hoặc INR > 1,5) kèm ít nhất 1 tiêu chuẩn: Đang xuất huyết nặng, Có chỉ định chọc màng phổi, màng bụng, Truyền máu khối lượng lớn (≥ 1/2 thể tích máu)",
+            "Truyền kết tủa lạnh: Đang xuất huyết nặng kèm Fibrinogen < 1g/L",
+            "Truyền tiểu cầu: Tiểu cầu < 5.000/mm3 (xem xét tùy từng trường hợp), Tiểu cầu < 50.000/mm3 kèm đang xuất huyết nặng hoặc có chỉ định chọc màng phổi, màng bụng"
+        ],
+        "contraindications": []
+    },
+    {
+        "phase": "Điều trị xuất huyết nặng",
+        "severity": "Xuất huyết tiêu hóa",
+        "clinical_signs": [],
+        "lab_tests": [],
+        "treatments": [
+            "Nhịn ăn uống",
+            "Tránh đặt sonde dạ dày ngoại trừ xuất huyết tiêu hóa ồ ạt thì nên đặt qua đường miệng",
+            "Vitamin K1 tĩnh mạch liều 1mg/kg/ngày, tối đa 20mg/ngày",
+            "Omeprazole 1 mg/kg truyền tĩnh mạch hoặc các thuốc ức chế bơm Proton khác (PPI) nếu nghi viêm loét dạ dày"
+        ],
+        "contraindications": []
+    }
+]

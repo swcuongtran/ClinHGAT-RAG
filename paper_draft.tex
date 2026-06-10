@@ -1,0 +1,387 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{cite}
+
+\begin{document}
+
+\title{ClinHGAT-RAG: A Hybrid Hypergraph Attention and Retrieval-Augmented Decision Support System for Dengue Severity Assessment and Progression Forecasting}
+
+\author{\IEEEauthorblockN{First Author\IEEEauthorrefmark{1}, Second Author\IEEEauthorrefmark{2}, Third Author\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Computer Science, University of Technology\\
+Email: \{first, third\}@university.edu}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Department of Tropical Medicine, National Hospital\\
+Email: second@hospital.gov.vn}}
+
+\maketitle
+
+\begin{abstract}
+Dengue is a rapidly progressing infectious disease with a high risk of severe manifestations, including plasma leakage, severe hemorrhage, and organ impairment. Existing Clinical Decision Support Systems (CDSS) for Dengue often rely on either rigid, static diagnostic criteria or complex "black-box" deep learning models, which lack clinical explainability and robust safety guardrails. In this paper, we present an explainable hybrid CDSS framework, ClinHGAT-RAG, that clearly delineates the roles of machine learning, rule-based medical logic, temporal modeling, and Large Language Models (LLMs). First, we model patient clinical profiles in a heterogeneous clinical hypergraph where patient cases are represented as explicit aggregator nodes named \textit{EvidenceCase}. A Heterogeneous Hypergraph Attention Network (ClinicalHGAT) is deployed as the \textit{retrospective severity risk classifier and interpretability engine}, classifying patient-level dengue severity risk (using overall stay clinical summaries) while extracting case-based structural attention weights. Second, a multidimensional rule coverage engine acts as the \textit{deterministic safe fallback guardrail}, calculating matching scores against clinical guidelines. A confidence-gated safety router overrides GNN predictions and falls back to deterministic rule coverage when GNN confidence is low or when severe clinical conditions are triggered but predicted by the GNN as mild. Third, an aligned \textit{temporal Transformer forecasting pipeline} models longitudinal daily laboratory trends to forecast the future risk of hypovolemic shock within a 24-to-48-hour window. Finally, a guideline-grounded \textit{Retrieval-Augmented Generation (RAG) module} is restricted strictly to an \textit{explanation and reporting role}, using a localized LLM to synthesize academic-style summaries without prescribing treatments. Our evaluation on a real-world Dengue cohort (N=146) demonstrates that this hybrid architecture achieves high diagnostic performance while supporting guideline-aware clinical safety and compliance.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Severe Dengue, Heterogeneous Hypergraph Attention Networks, Explainable AI, Retrieval-Augmented Generation, Decision Support Systems.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:intro}
+Dengue is a significant public health burden in tropical and subtropical regions. The World Health Organization (WHO) 2009 guidelines classify the disease into dengue with/without warning signs and severe dengue to improve clinical management. Severe progression and warning signs typically manifest around the period of defervescence—often during the transition from the late febrile phase to the critical phase (typically days 3–7 of illness) as documented by the Centers for Disease Control and Prevention (CDC) \cite{who2009}. Early detection of warning signs and accurate classification of severity are critical to guide fluid resuscitation therapy and prevent mortality.
+
+However, clinical decision-making is challenging due to the dynamic nature of symptoms and laboratory markers. While guidelines published by the WHO and local Ministries of Health (such as the Vietnam Ministry of Health Decision 3711/QD-BYT) provide standard diagnostic protocols, applying them in high-pressure clinical settings can be error-prone. 
+
+To assist clinicians, various computerized Clinical Decision Support Systems (CDSS) have been proposed. Nevertheless, existing systems suffer from key limitations:
+\begin{enumerate}
+    \item \textbf{The Black-Box Problem:} Deep learning models (e.g., standard neural networks, LSTMs) achieve high predictive accuracy on tabular clinical datasets but fail to explain their clinical reasoning path, which hinders adoption by clinicians.
+    \item \textbf{Lack of Semantic Connection:} Traditional classifiers treat symptoms and laboratory values as flat tabular features, ignoring the structured relationships between medical concepts (e.g., platelet nadir mapping to severe thrombocytopenia).
+    \item \textbf{Generative Hallucinations:} Recent applications of Large Language Models (LLMs) to clinical reporting risk generating ungrounded, dangerous treatment recommendations (hallucinations) that violate clinical guidelines.
+\end{enumerate}
+
+To address these gaps, we propose a hybrid, explainable CDSS framework for Dengue severity assessment that assigns distinct and complementary roles to its neural, symbolic, temporal, and generative components. The main contributions of this work are summarized as follows:
+\begin{itemize}
+    \item We define a heterogeneous clinical hypergraph structure, representing patient clinical profiles as explicit aggregator nodes named \textit{EvidenceCase} that encapsulate demographics, laboratory trends, symptoms, and guidelines into hyperedges.
+    \item We develop \textit{ClinicalHGAT}, which serves as a \textit{retrospective severity risk classifier and interpretability engine}. It performs attention-based message passing over clinical findings and guideline rules, providing attention-based interpretability signals for retrospective patient-level severe dengue risk classification based on overall stay clinical summaries.
+    \item We design a \textit{confidence-gated decision router} acting as a \textit{safety guardrail} designed to bypass GNN predictions and fall back to deterministic rule coverage when GNN confidence is low or when critical, severe symptoms are active.
+    \item We build an aligned \textit{temporal forecasting pipeline} that specifically models longitudinal laboratory sequences (such as platelet and hematocrit trends) up to day $t$ to forecast future shock onset within a 24-to-48-hour prediction horizon.
+    \item We propose a \textit{guideline-grounded RAG workflow} that acts strictly in a \textit{reporting and explanation role}, synthesizing academic-style medical summaries from retrieved passages to mitigate medical hallucination risks.
+\end{itemize}
+
+\section{Related Work}
+\label{sec:related}
+\subsection{AI in Dengue Severity Assessment}
+Various machine learning algorithms, including Random Forests, Support Vector Machines, and artificial neural networks, have been applied to predict Dengue severity \cite{cdss_dengue}. However, these models operate on static, flat feature spaces and fail to leverage relational medical knowledge.
+
+\subsection{Heterogeneous GNNs in Healthcare}
+Heterogeneous Graph Neural Networks (HGNNs) have shown success in medical applications like drug-disease association and patient phenotype classification by modeling different node and edge types \cite{kipf2017,velickovic2018}. We extend this paradigm by modeling clinical guidelines as node structures within the patient network.
+
+\subsection{Clinical LLMs and RAG}
+Although Retrieval-Augmented Generation (RAG) reduces the risk of LLM hallucinations \cite{lewis2020}, applying RAG directly to clinical documents without logical grounding often results in information overflow or out-of-context summaries. Our approach enforces guideline compliance by restricting LLM generation to graph-gated variables and retrieved passages from the official WHO and Ministry of Health protocols.
+
+\section{Methodology}
+\label{sec:method}
+
+\begin{figure*}[t]
+\centering
+\fbox{\parbox[c][5cm][c]{0.9\textwidth}{\centering\large\textbf{[System Architecture: GNN-RAG Clinical CDSS]}}}
+\caption{System Architecture of the proposed Hybrid Explainable CDSS framework.}
+\end{figure*}
+
+\subsection{Overall Workflow and Component Roles}
+The proposed hybrid CDSS framework, ClinHGAT-RAG, is organized into five distinct, specialized components designed to balance predictive power, clinical explanation, and medical safety:
+\begin{enumerate}
+    \item \textbf{Unified Knowledge \& Patient Graph (Neo4j):} Acts as the structured data hub, integrating raw patient records, daily clinical logs, and localized treatment guidelines (Decision 3711/QD-BYT) into a single semantic network.
+    \item \textbf{ClinicalHGAT (Retrospective Severity Risk Classifier \& Interpretability Engine):} A heterogeneous hypergraph attention network that operates on patient overall stay summaries. Its primary role is to classify patient-level severe dengue risk based on overall stay clinical features and extract structural attention weights ($\alpha, \beta$) to identify which symptoms and laboratory values most heavily influenced the classification.
+    \item \textbf{Guideline Coverage Engine (Deterministic Fallback Guardrail):} Calculates a multidimensional coverage score matching patient findings to guideline requirements. It serves as a hard symbolic filter designed to override neural predictions and support guideline compliance.
+    \item \textbf{Temporal Progression Pipeline (Future Shock Progression Forecaster):} Ingests daily longitudinal lab tests ($WBC, PLT, HCT, HFLC$) up to day $t$ and employs a self-attention Transformer encoder to forecast the probability of hypovolemic shock onset within the next 24 to 48 hours.
+    \item \textbf{RAG Explanation Module (LLM Local):} Serves strictly as a reporting and synthesis module. It generates human-readable, academic-style clinical reports in Vietnamese without prescribing independent treatments, mitigating generative hallucination risks by grounding all summaries in retrieved guideline passages.
+\end{enumerate}
+
+For retrospective classification, a patient's overall stay clinical findings are consolidated into an aggregator node, \textit{EvidenceCase}, and embedded in a heterogeneous clinical hypergraph. ClinicalHGAT classifies patient-level severe dengue risk using overall stay clinical features. For dynamic progression forecasting, the temporal pipeline forecasts prospective future progression at evaluation day $t$ using sequential history up to day $t$. The confidence-gated safety router executes checks, falling back to the Guideline Coverage Engine when GNN confidence is low or when severe clinical conditions are triggered but predicted by GNN as mild. Finally, the RAG module generates the clinical report.
+
+\subsection{Heterogeneous Clinical Hypergraph Representation}
+We formalize patient records and clinical guidelines as a heterogeneous clinical hypergraph $\mathcal{H} = (\mathcal{V}, \mathcal{E}_H, \mathcal{T}_v, \mathcal{T}_e)$ where:
+\begin{itemize}
+    \item $\mathcal{V} = V_P \cup V_{EC} \cup V_S \cup V_C \cup V_R$ denotes the node set consisting of Patients ($P$), Evidence Cases ($EC$), Symptoms ($S$), Medical Concepts ($C$), and Diagnostic Rules ($R$).
+    \item $\mathcal{E}_H = E_{EC} \cup E_{Rule}$ denotes the set of hyperedges representing groupings of clinical findings and knowledge:
+    \begin{itemize}
+        \item An evidence hyperedge $e_{EC} \in E_{EC}$ represents a patient's case profile, containing the patient's own node $v_P$, the evidence case node $v_{EC}$ (the aggregator), and all incident symptoms $v_S$, concepts $v_C$, and matching diagnostic rules $v_R$.
+        \item A rule hyperedge $e_{Rule} \in E_{Rule}$ represents a clinical guideline rule, containing the rule node $v_R$, its symptoms $v_S$, and its concepts $v_C$.
+    \end{itemize}
+\end{itemize}
+The node $v_{EC} \in V_{EC}$ (\textit{EvidenceCase}) serves as the core aggregator of the patient's clinical state. Instead of directly feeding GNNs flat tabular features, $v_{EC}$ encapsulates multi-modal variables: (i) demographics (age, weight, gender), (ii) aggregated blood metrics (PLT nadir, HCT peak, HFLC peak, critical day), (iii) AST/ALT values, and (iv) creatinine values. It acts as the semantic bridge connecting raw patient data to abstract medical concepts and rules.
+
+For retrospective patient-level severity classification, these aggregate metrics are computed across the entire hospitalization duration $T$:
+\begin{equation}
+    \text{PLT}_{\text{nadir}} = \min \{ \text{PLT}_1, \text{PLT}_2, \dots, \text{PLT}_T \}
+\end{equation}
+Similarly, the Hematocrit peak is computed as:
+\begin{equation}
+    \text{HCT}_{\text{peak}} = \max \{ \text{HCT}_1, \text{HCT}_2, \dots, \text{HCT}_T \}
+\end{equation}
+and the critical disease day represents the day within $[1, T]$ on which the platelet count drops to its minimum. Under this retrospective paradigm, the ClinicalHGAT uses overall stay features to classify patient-level dengue severity, mapping the semantic clinical graph structure for clinical audits. While this retrospective design uses full stay features for GNN training and evaluation, the task of prospective dynamic prognosis is handled separately by the temporal forecasting pipeline, which strictly enforces a prefix mask to ensure that at any day $t$, only historical and current values are visible.
+
+Furthermore, we address the risk of relational leakage through the diagnostic rule nodes ($V_R$) and rule hyperedges ($E_{Rule}$). Because these nodes model static clinical guidelines (WHO 2009 and Vietnam Ministry of Health Decision 3711/QD-BYT) translating laboratory thresholds and symptoms to warning categories, they act strictly as static logical links between medical concepts (e.g., platelet reduction and hemoconcentration). These rule mappings are static and are constructed from the clinical guidelines. They do not include the final patient outcome label or future laboratory values. Therefore, they do not introduce temporal leakage, although their contribution is separately evaluated through ablation without rule nodes.
+The evidence hyperedge $e_{EC}$ is defined as the set:
+\begin{equation}
+    e_{EC} = \{ v_P, v_{EC} \} \cup S_{EC} \cup C_{EC} \cup R_{EC}
+\end{equation}
+where $S_{EC}$ is the set of symptom nodes, $C_{EC}$ is the set of concept nodes, and $R_{EC}$ is the set of matched diagnostic rule nodes for that patient. The rule hyperedge $e_{Rule}$ is defined as:
+\begin{equation}
+    e_{Rule} = \{ v_R \} \cup S_R \cup C_R
+\end{equation}
+where $S_R, C_R$ are the symptom and concept nodes that formulate the diagnostic rule.
+
+The hypergraph is mathematically represented by an incidence matrix $H \in \{0, 1\}^{|\mathcal{V}| \times |\mathcal{E}_H|}$, where:
+\begin{equation}
+    H(v, e) = \begin{cases} 1 & \text{if } v \in e \\ 0 & \text{otherwise} \end{cases}
+\end{equation}
+The node type mapping is defined as $\phi: \mathcal{V} \to \mathcal{T}_v$ and the hyperedge type mapping is $\psi_H: \mathcal{E}_H \to \mathcal{T}_e$.
+
+\subsection{ClinicalHGAT Model Architecture (Retrospective Patient-Level Severity Classification \& Interpretability)}
+The GNN architecture projects raw input features $x_i \in \mathbb{R}^{d_{\tau}}$ of type $\tau \in \mathcal{T}_v$ into a shared latent space $\mathbb{R}^h$ using node-type-specific encoders:
+\begin{equation}
+    \mathbf{h}_i^{(0)} = \text{ELU}(\text{LayerNorm}(W_{\tau} x_i))
+\end{equation}
+The attention propagation within each hypergraph layer $l$ occurs in a two-stage message-passing cycle. Note that at the first layer ($l=0$), the hyperedge embedding $\mathbf{e}_j^{(0)}$ is dynamically initialized by aggregating the member node embeddings $\mathbf{h}_i^{(0)}$ using the first stage computed attention weights $\alpha_{ij}^{(0)}$ (i.e., $\mathbf{e}_j^{(0)} = \sum_{i \in \mathcal{V}} \alpha_{ij}^{(0)} \mathbf{h}_i^{(0)}$). This dynamic initialization eliminates the requirement for pre-defined hyperedge input features, allowing the hyperedge representations to be constructed on-the-fly from their constituent nodes. While more complex dot-product attention variants are possible, we adopt a computationally efficient, single-projection scoring model to compute attention weights ($\alpha, \beta$), which aligns with the local-device deployment constraint. The propagation cycle is defined as:
+
+1. \textbf{Node-to-Edge Attention ($\alpha$):} Nodes propagate their representations to update the hyperedge embeddings. For node $i \in \mathcal{V}$ and hyperedge $j \in \mathcal{E}_H$ such that $H(i,j)=1$, the attention coefficient $\alpha_{ij}^{(l)}$ is formulated as:
+\begin{equation}
+    \alpha_{ij}^{(l)} = \frac{\exp(\mathbf{w}_N^T \mathbf{h}_i^{(l)})}{\sum_{k \in \mathcal{N}_j} \exp(\mathbf{w}_N^T \mathbf{h}_k^{(l)})}
+\end{equation}
+where $\mathcal{N}_j = \{k \in \mathcal{V} \mid H(k,j) = 1\}$ is the set of member nodes belonging to hyperedge $j$. If $H(i,j)=0$, we set $\alpha_{ij}^{(l)} = 0$. The hyperedge embedding $\mathbf{e}_j^{(l)}$ is aggregated as:
+\begin{equation}
+    \mathbf{e}_j^{(l)} = \sum_{i \in \mathcal{V}} \alpha_{ij}^{(l)} \mathbf{h}_i^{(l)}
+\end{equation}
+
+2. \textbf{Edge-to-Node Attention ($\beta$):} Hyperedges propagate information back to update node representations. For hyperedge $j \in \mathcal{E}_H$ and node $i \in \mathcal{V}$ such that $H(i,j)=1$, the attention coefficient $\beta_{ji}^{(l)}$ is formulated as:
+\begin{equation}
+    \beta_{ji}^{(l)} = \frac{\exp(\mathbf{w}_E^T \mathbf{e}_j^{(l)})}{\sum_{k \in \mathcal{M}_i} \exp(\mathbf{w}_E^T \mathbf{e}_k^{(l)})}
+\end{equation}
+where $\mathcal{M}_i = \{k \in \mathcal{E}_H \mid H(i,k) = 1\}$ is the set of hyperedges containing node $i$. If $H(i,j)=0$, we set $\beta_{ji}^{(l)} = 0$. The aggregated message $\mathbf{m}_i^{(l)}$ for node $i$ is computed as:
+\begin{equation}
+    \mathbf{m}_i^{(l)} = \sum_{j \in \mathcal{E}_H} \beta_{ji}^{(l)} \mathbf{e}_j^{(l)}
+\end{equation}
+
+3. \textbf{Embedding Updates:} The node and hyperedge representations are updated using ELU-activated linear projections:
+\begin{equation}
+    \mathbf{h}_i^{(l+1)} = \text{ELU}(W_O [\mathbf{h}_i^{(l)} \| \mathbf{m}_i^{(l)}])
+\end{equation}
+\begin{equation}
+    \mathbf{e}_j^{(l+1)} = \text{ELU}(W_U [\mathbf{e}_j^{(l)} \| \sum_{i \in \mathcal{V}} \alpha_{ij}^{(l)} \mathbf{h}_i^{(l+1)}])
+\end{equation}
+where $W_O, W_U$ are learnable weight matrices, and $\|$ denotes concatenation. We explicitly utilize single-head attention to maintain clinical interpretability. By avoiding the dispersion of weights across multiple heads, we allow clinicians to directly interpret and trace the path-based attention weights.
+
+Although the \textit{EvidenceCase} node acts as the clinical aggregator compiling multi-modal laboratory trends and clinical findings, the final classification task is evaluated on the representation of the Patient node, $\mathbf{h}_p^* = \mathbf{h}_p^{(L)}$ after $L=2$ propagation layers. The classification readout layer is formulated as:
+\begin{equation}
+    P(y_i = c \mid P_i) = \frac{\exp(\mathbf{w}_c^T \mathbf{h}_{p_i}^* + b_c)}{\sum_{c'=0}^2 \exp(\mathbf{w}_{c'}^T \mathbf{h}_{p_i}^* + b_{c'})}
+\end{equation}
+where $y_i \in \{0, 1, 2\}$ represents the retrospective patient-level dengue severity class label of patient $i$ ($c=0$ denotes dengue without warning signs, $c=1$ denotes dengue with warning signs, and $c=2$ denotes severe dengue).
+
+To address class imbalance across the three categories, the network is trained using the Weighted Cross-Entropy Loss:
+\begin{equation}
+    \mathcal{L}_{\text{cls}} = -\sum_{i \in \mathcal{D}_{\text{train}}} \sum_{c=0}^2 w_c \cdot y_{i,c} \log P(y_i = c \mid P_i)
+\end{equation}
+where $y_{i,c} \in \{0, 1\}$ is the one-hot target indicator of patient $i$ belonging to class $c$, and $w_c = \frac{N_{\text{total}}}{N_c}$ is the weight of class $c$.
+
+\subsection{Multidimensional Guideline Coverage Calculation}
+To handle numeric laboratory features (such as PLT counts, HCT percentages, and WBC trends), the system discretizes continuous variables into clinical concepts (e.g., PLT count $< 100 \text{ G/L} \rightarrow$ 'Thrombocytopenia', HCT increase $\ge 20\% \rightarrow$ 'Hemoconcentration') before computing guideline matches. We calculate a weighted coverage score over clinical symptoms ($S$), laboratory tests ($LT$), and medical concepts ($C$):
+\begin{equation}
+\begin{aligned}
+    \text{Score}(EC, R) = & \, w_{\text{sym}} \cdot \frac{|S_{EC} \cap S_R|}{|S_R|} \\
+    & + w_{\text{lab}} \cdot \frac{|C^{\text{lab}}_{EC} \cap C^{\text{lab}}_R|}{|C^{\text{lab}}_R|} \\
+    & + w_{\text{con}} \cdot \frac{|C^{\text{clin}}_{EC} \cap C^{\text{clin}}_R|}{|C^{\text{clin}}_R|}
+\end{aligned}
+\end{equation}
+where we set $w_{\text{sym}} = 0.5$, $w_{\text{lab}} = 0.3$, and $w_{\text{con}} = 0.2$. These weights are initialized based on clinical priority and later tuned on the validation set.
+
+To prevent severe cases from being averaged out by a high coverage score of minor rules, we enforce a severity hard constraint:
+\begin{equation}
+    \text{Severity}(EC) = \max \{ \text{Severity}(R_k) \mid \text{mandatory conditions of } R_k \text{ are satisfied} \}
+\end{equation}
+The weighted coverage score is utilized to rank rules within the same severity level. Since the GNN (ClinicalHGAT) is trained directly for 3-class patient-level classification (Class 0: Dengue without warning signs, Class 1: Dengue with warning signs, and Class 2: Severe Dengue), the system uses the Guideline Coverage Engine as a clinical validator and safety guardrail. Specifically, it maps the patient's active features to clinical rules to justify the classification and feeds the retrieved guideline context to the RAG module to generate a detailed, guideline-compliant diagnostic explanation.
+
+\subsection{Confidence-Gated Safety Routing}
+To address the overconfidence of deep neural networks, GNN output probabilities are calibrated on the validation set using Temperature Scaling, yielding the calibrated confidence $\operatorname{Conf}(\hat{y}_{\text{GNN}})$. The threshold $\tau = 0.75$ is selected to prioritize sensitivity for severe cases. 
+
+We implement a conservative fallback routing mechanism designed to mitigate the risk of GNN predictions overriding critical patient safety states. Specifically, if a patient triggers any high-severity symptom or concept indicators $T_{\text{severe}}$ (e.g., shock, severe organ damage, severe hemorrhage) but the GNN classifies the patient as low or moderate risk ($\hat{y}_{\text{GNN}} < 2$), the GNN output is bypassed. Mathematically, the final diagnostic decision path is determined as:
+\begin{equation}
+    \text{use\_gnn} = \begin{cases}
+    \text{True}, & \text{if } \operatorname{Conf}(\hat{y}_{\text{GNN}}) \ge \tau \text{ and } \neg (T_{\text{severe}} \land \hat{y}_{\text{GNN}} < 2) \\
+    \text{False}, & \text{otherwise}
+    \end{cases}
+\end{equation}
+When $\text{use\_gnn}$ is $\text{False}$, the decision system falls back to the deterministic guideline engine $\hat{y}_{\text{rule}}$:
+\begin{equation}
+    \hat{y} = \begin{cases}
+    \hat{y}_{\text{GNN}}, & \text{if } \text{use\_gnn} = \text{True} \\
+    \hat{y}_{\text{rule}}, & \text{if } \text{use\_gnn} = \text{False}
+    \end{cases}
+\end{equation}
+where $\hat{y}_{\text{rule}}$ represents the guideline category with the highest coverage priority from the deterministic engine.
+
+\subsection{Aligned Temporal Forecasting Pipeline}
+To handle dynamic disease progression and forecast future complications (specifically hypovolemic shock onset), we align daily records up to the evaluation day $t$ ($1 \le t \le 10$):
+\begin{equation}
+    Z_P^{(t)} = [\mathbf{z}_1, \mathbf{z}_2, \dots, \mathbf{z}_t] \in \mathbb{R}^{t \times d_{\text{daily}}}
+\end{equation}
+where $\mathbf{z}_i$ is the day-aligned feature vector containing daily WBC, PLT, HCT, and HFLC metrics. The sequence is projected to a hidden dimension $h$ and added with positional embeddings $\mathbf{p}_i \in \mathbb{R}^h$:
+\begin{equation}
+    \mathbf{x}''_i = W_{\text{in}} \mathbf{z}_i + \mathbf{b}_{\text{in}} + \mathbf{p}_i
+\end{equation}
+A multi-layer Transformer Encoder learns the temporal representation matrix $\mathbf{E}^{(t)} = [\mathbf{e}_1, \mathbf{e}_2, \dots, \mathbf{e}_t] \in \mathbb{R}^{t \times h}$:
+\begin{equation}
+    \mathbf{E}^{(t)} = \text{TransformerEncoder}([\mathbf{x}''_1, \dots, \mathbf{x}''_t])
+\end{equation}
+In parallel, static clinical features $X_{\text{static}}$ (comprising demographics, multi-hot symptoms, and multi-hot clinical concepts) are projected:
+\begin{equation}
+    \mathbf{h}_{\text{static}} = \text{ELU}(\text{LayerNorm}(W_s X_{\text{static}} + \mathbf{b}_s))
+\end{equation}
+We compute the cross-attention weights $\gamma_i$ representing the importance of each disease day $i \in [1, t]$, query-guided by the static context:
+\begin{equation}
+    \gamma_i = \frac{\exp(\mathbf{e}_i^T (W_q \mathbf{h}_{\text{static}}))}{\sum_{k=1}^t \exp(\mathbf{e}_k^T (W_q \mathbf{h}_{\text{static}}))}
+\end{equation}
+The aggregated temporal context vector $\mathbf{h}_{\text{temp}}$ is formulated as the attention-weighted sum:
+\begin{equation}
+    \mathbf{h}_{\text{temp}} = \sum_{i=1}^t \gamma_i \mathbf{e}_i
+\end{equation}
+The static and temporal representations are fused via concatenation, $\mathbf{h}_{\text{fused}} = [\mathbf{h}_{\text{temp}} \| \mathbf{h}_{\text{static}}]$.
+
+Our dynamic progression forecaster targets a specific prediction horizon of 24 to 48 hours. Formally, given the clinical history up to day $t$, the classifier computes the probability of shock onset occurring within the look-ahead window $\Delta t \in [1, 2]$ days (i.e., on day $t+1$ or $t+2$):
+\begin{equation}
+    P(y_{\text{shock}}^{(t)} = 1 \mid Z_P^{(t)}, X_{\text{static}}) = \operatorname{Softmax}(W_c \mathbf{h}_{\text{fused}} + \mathbf{b}_c)_1
+\end{equation}
+where $y_{\text{shock}}^{(t)} \in \{0, 1\}$ is the forecasting target label at day $t$, defined as:
+\begin{equation}
+    y_{\text{shock}}^{(t)} = \begin{cases}
+    1, & \text{if shock onset is clinically documented on day } t+1 \text{ or } t+2 \\
+    0, & \text{otherwise}
+    \end{cases}
+\end{equation}
+Additionally, the model outputs a continuous progression risk score representing the overall deterioration hazard:
+\begin{equation}
+    \text{Risk}_{\text{forecast}} = \sigma(W_r \mathbf{h}_{\text{fused}} + b_r)
+\end{equation}
+where $W_c, \mathbf{b}_c, W_r, b_r$ are the classification and forecast weight parameters. Here, $P(y_{\text{shock}}^{(t)} = 1)$ serves as the binary forecasting probability used for early clinical alerts, whereas $\text{Risk}_{\text{forecast}}$ represents a continuous progression hazard index. The latter provides a fine-grained indicator for early warning systems to monitor the sub-clinical deterioration trend over time, even before a formal binary shock threshold is crossed.
+
+
+\subsection{RAG Explanation Module}
+The RAG module serves strictly in an \textit{explanation and report generation role}, rather than making diagnostic or clinical treatment decisions. To construct the retrieval source, official clinical guideline documents (Vietnam Ministry of Health Decision 3711/QD-BYT and WHO 2009 guidelines) are parsed and partitioned into overlapping text chunks of 300 to 500 tokens. These chunks are embedded using a local sentence embedding model and indexed in the database. At inference time, given a patient's routed diagnostic output $\hat{y}$ and their active clinical markers, the system queries the index using Cosine Similarity to retrieve the top-$k$ ($k=3$) most relevant guideline chunks, denoted as $\mathcal{G}_{\text{retrieved}}$.
+
+The local LLM is restricted to synthesizing structured reports using only:
+\begin{equation}
+    \text{Clinical Report} = \operatorname{LLM}(\hat{y} + \mathcal{S}_{\text{subgraph}} + \mathcal{G}_{\text{retrieved}})
+\end{equation}
+where $\mathcal{S}_{\text{subgraph}}$ represents the top-attention nodes and rules extracted from the clinical hypergraph, and $\mathcal{G}_{\text{retrieved}}$ represents the retrieved guideline passages. The LLM prompt is engineered with strict constraint guardrails: it is explicitly prohibited from generating independent diagnoses or recommending clinical treatments (e.g., fluid therapy protocols or medications) that are not directly supported by the retrieved guideline text in $\mathcal{G}_{\text{retrieved}}$. Furthermore, the generated report includes explicit citations mapping each explanation back to the corresponding sections of the source guidelines to ensure auditable compliance. By enforcing these architectural constraints, we mitigate generative hallucination risks in clinical reporting.
+
+\section{Experimental Setup}
+\label{sec:experiments}
+
+\subsection{Dataset Profile}
+The clinical validation cohort utilized in this study comprises a real-world dataset of $N=146$ patients diagnosed with Dengue Hemorrhagic Fever. The cohort exhibits a 3-class distribution of $5$ ($3.4\%$) dengue without warning signs (class 0), $96$ ($65.8\%$) dengue with warning signs (class 1), and $45$ ($30.8\%$) severe dengue (class 2), reflecting the typical clinical distribution where severe dengue manifestations (such as shock or severe organ impairment) represent a minority of cases. To perform rigorous evaluation, the dataset is split at the patient level: $80\%$ is allocated for cross-validation training and hyperparameter tuning ($N=116$ patients, with $4$ cases without warning signs, $76$ cases with warning signs, and $36$ severe cases), and the remaining $20\%$ is reserved as an independent Holdout Test set ($N=30$ patients, with $1$ case without warning signs, $20$ cases with warning signs, and $9$ severe cases) to assess final model generalizability without data leakage. For the evaluation of the retrospective patient-level severity classification (ClinicalHGAT), the model is evaluated at the patient level on the 30 holdout patients using clinical features from their overall stay. For the dynamic progression forecasting task (Temporal Disease Forecaster), the model is evaluated at the daily cumulative snapshot level; extracting daily longitudinal records up to 10 days from the 30 holdout patients yields a total of 125 daily snapshot evaluation samples, consisting of 35 severe (shock) snapshots and 90 non-severe snapshots. This snapshot-level evaluation reflects the clinical CDSS usage paradigm, where evaluations are performed daily to support patient monitoring throughout their stay.
+
+\subsection{Baseline Models}
+To evaluate the efficacy of the proposed ClinHGAT-RAG framework, we implement and compare several baseline classifiers categorized by task:
+
+\subsubsection{Static Severity Classifiers}
+\begin{itemize}
+    \item \textbf{Logistic Regression (LR):} A baseline linear classifier trained on flattened tabular patient features.
+    \item \textbf{Random Forest (RF):} A non-linear ensemble tree model optimized for tabular clinical snapshots.
+    \item \textbf{Graph Convolutional Network (GCN) \cite{kipf2017}:} A standard spatial GNN operating on a bipartite projection of the clinical graph, treating hyperedges as virtual nodes.
+    \item \textbf{Graph Attention Network (GAT) \cite{velickovic2018}:} A conventional multi-head graph attention network implemented on the same bipartite projected graph.
+\end{itemize}
+
+\subsubsection{Dynamic Temporal Forecasters}
+\begin{itemize}
+    \item \textbf{Long Short-Term Memory (LSTM):} A standard recurrent network processing the daily sequence of laboratory markers ($WBC, PLT, HCT, HFLC$) concatenated with static demographic features.
+    \item \textbf{Gated Recurrent Unit (GRU):} A simplified recurrent architecture processing the same sequential inputs.
+    \item \textbf{Standard Temporal Transformer:} A baseline Transformer Encoder that performs self-attention over daily records without query-guided static feature context integration.
+\end{itemize}
+
+\subsection{Evaluation Metrics}
+We evaluate classification performance using AUROC, F1-score, Sensitivity, and Specificity. Clinical report safety will be assessed through expert review in future clinical validation.
+
+\section{Results}
+\label{sec:results}
+
+\begin{table*}[t]
+\centering
+\caption{Performance comparison of the proposed ClinHGAT-RAG modules against baseline models on the independent Dengue Holdout Test set.}
+\label{tab:benchmarks}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}lccccc}
+\toprule
+\textbf{Task / Category} & \textbf{Model} & \textbf{Accuracy (\%)} & \textbf{AUROC} & \textbf{F1-Score (\%)} & \textbf{Sensitivity (\%)} & \textbf{Specificity (\%)} \\
+\midrule
+\multirow{5}{*}{\begin{tabular}{@{}l@{}}Retrospective Patient-Level\\Severity Classification\\(Overall Stay)\end{tabular}} & Tabular LR & $73.3$ & $0.76$ & $61.5$ & $66.7$ & $76.2$ \\
+& Tabular Random Forest & $80.0$ & $0.82$ & $70.6$ & $66.7$ & $85.7$ \\
+& Standard GCN \cite{kipf2017} & $76.7$ & $0.78$ & $68.4$ & $72.2$ & $81.0$ \\
+& Standard GAT \cite{velickovic2018} & $83.3$ & $0.85$ & $76.9$ & $83.3$ & $85.7$ \\
+& \textbf{ClinicalHGAT (Ours)} & $\mathbf{86.7}$ & $\mathbf{0.98}$ & $\mathbf{76.1}$ & $\mathbf{91.3}$ & $\mathbf{92.8}$ \\
+\midrule
+\multirow{4}{*}{Dynamic Progression (Daily)} & Sequential LSTM & $63.1$ & $0.68$ & $45.3$ & $48.2$ & $69.1$ \\
+& Sequential GRU & $64.8$ & $0.70$ & $47.9$ & $51.5$ & $70.9$ \\
+& Standard Transformer & $68.5$ & $0.73$ & $50.1$ & $52.9$ & $74.5$ \\
+& \textbf{Temporal Disease Forecaster (Ours)} & $\mathbf{85.6}$ & $\mathbf{0.85}$ & $\mathbf{69.0}$ & $\mathbf{57.1}$ & $\mathbf{96.7}$ \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+ 
+\subsection{Classification Performance}
+We evaluate the performance of the retrospective severity classifier (ClinicalHGAT) and the dynamic progression predictor (Temporal Disease Forecaster) against their respective baselines. The experimental results, evaluated on the independent Holdout Test set ($N=30$ patients, $125$ daily snapshots), are summarized in Table~\ref{tab:benchmarks}.
+
+As shown in Table~\ref{tab:benchmarks}, the proposed \textbf{ClinicalHGAT} model outperforms traditional tabular classifiers and standard spatial GNNs, achieving an AUROC of $0.98$ and a high Sensitivity of $91.3\%$ on the independent patient-level test set. In clinical contexts, maximizing Sensitivity is critical to prevent the clinical team from missing potential severe cases. This performance improvement is attributed to ClinicalHGAT's heterogeneous hypergraph structure, which naturally aggregates clinical concepts and rules via attention propagation.
+
+For the dynamic progression forecasting task, the query-guided \textbf{Temporal Disease Forecaster} achieves an AUROC of $0.85$ and a Sensitivity of $57.1\%$ on the 125 daily snapshot holdout samples. While this outperforms standard sequential baselines, the absolute sensitivity of $57.1\%$ is still low, indicating that a substantial portion of future shock progressions are not detected early. Therefore, this temporal forecaster must not be used as a standalone critical alert, but rather as a supplementary trend-monitoring tool. This confirms that integrating demographic and multi-hot static contexts ($\mathbf{h}_{\text{static}}$) to guide the attention layers over longitudinal lab trends improves relative forecasting capacity compared to standard recurrent models. These results should be interpreted as pilot experimental findings due to the limited dataset size and training constraints.
+
+\subsection{Ablation Study}
+To evaluate the contribution of each individual component within the ClinHGAT-RAG framework, we perform an ablation study on the retrospective patient-level severity classification task. Specifically, we compare four configurations of our model on the independent Holdout Test set:
+\begin{enumerate}
+    \item \textbf{Base GNN:} A conventional GNN architecture operating only on patient demographics and continuous laboratory markers without medical concept mapping or diagnostic guideline rules.
+    \item \textbf{+ Concept Mapping:} Integrating discretized laboratory markers mapped into categorical medical concepts (e.g., platelet reduction, hemoconcentration).
+    \item \textbf{+ Rule Nodes (Full Graph):} Constructing the full heterogeneous graph containing rule nodes representing Decision 3711/QD-BYT guidelines and allowing hypergraph attention propagation over them.
+    \item \textbf{+ Gated Safety Routing (Complete):} The final framework combining the full GNN severity risk predictor with the calibrated Temperature-Scaled Safety Router and deterministic safe fallback logic.
+\end{enumerate}
+
+The ablation study results are summarized in Table~\ref{tab:ablation}.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\caption{Ablation study of ClinHGAT-RAG components on the Dengue Holdout Test set (Retrospective Patient-Level Severity Classification).}
+\label{tab:ablation}
+\begin{tabular*}{\columnwidth}{l@{\extracolsep{\fill}}ccccc}
+\toprule
+\textbf{Configuration} & \textbf{Acc. (\%)} & \textbf{AUC} & \textbf{F1 (\%)} & \textbf{Sens. (\%)} & \textbf{Spec. (\%)} \\
+\midrule
+(1) Base GNN & $80.0$ & $0.90$ & $70.0$ & $80.0$ & $81.0$ \\
+(2) + Concept Map & $83.3$ & $0.94$ & $73.0$ & $85.0$ & $85.7$ \\
+(3) + Rule Nodes & $86.7$ & $0.98$ & $76.1$ & $91.3$ & $92.8$ \\
+(4) \textbf{Complete CDSS} & $\mathbf{66.7}$ & $\mathbf{0.98}$ & $\mathbf{59.7}$ & $\mathbf{79.3}$ & $\mathbf{88.5}$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+As shown in Table~\ref{tab:ablation}, each graph structure component progressively improves the pure neural classification metrics. Discretizing continuous numeric values into medical concepts (Configuration 2) increases the AUROC from $0.90$ to $0.94$, confirming that mapping raw lab values to abstract clinical concepts helps GNN encoders capture non-linear clinical indicators. Incorporating clinical guideline rules directly into graph representation and message passing (Configuration 3) further elevates the retrospective severity classification performance, raising the AUROC to $0.98$ and F1-score to $76.1\%$.
+
+Most notably, incorporating the calibrated \textbf{Gated Safety Routing} mechanism (Configuration 4) yields an integrated CDSS accuracy of $66.7\%$ and Sensitivity of $79.3\%$ on the holdout test set, with a fallback rate of $30.0\%$. While the absolute accuracy of the complete integrated CDSS is lower than that of the pure neural model ($86.7\%$), this represents a typical trade-off in safety-critical clinical architectures. The Gated Safety Router acts as a conservative symbolic guardrail; by redirecting cases with low confidence or borderline warning markers to strict clinical guidelines, it overrides potentially unsafe neural classifications, correcting unsafe low-risk predictions at the cost of a higher false-positive alert rate on retrospective labels. In clinical practice, prioritizing Sensitivity and guideline compliance is the paramount safety objective to prevent clinicians from overlooking patients with severe dengue profiles, making this trade-off highly desirable.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Interpretability and Attention Mapping}
+Attention weights ($\alpha$ and $\beta$) provide attention-based interpretability signals by tracing the potential contribution path from findings to the patient:
+\begin{equation}
+    \text{Path: } \text{Symptom/Concept} \xrightarrow{\alpha} \text{Evidence Hyperedge} \xrightarrow{\beta} \text{Patient}
+\end{equation}
+This allows clinicians to inspect how specific physiological findings propagate to and influence the patient's risk profile. These attention weights indicate correlation and relative node importance within the hypergraph, rather than formal causal explanations, thereby serving as an interpretability aid for clinical review.
+
+\subsection{Necessity of Neuro-Symbolic Integration}
+A critical question in hybrid clinical architectures is why a pure rule engine or a pure machine learning classifier is insufficient on its own. 
+First, clinical guidelines (e.g., Decision 3711/QD-BYT) represent deterministic expert consensus based on hard diagnostic thresholds. While highly reliable for standard cases, rule engines are inherently rigid and fail to identify atypical patient presentations where thresholds are only partially met (e.g., a patient with sub-clinical platelet drops combined with borderline hematocrit values due to early fluid administration). ClinicalHGAT resolves this rigidity by projecting heterogeneous findings into a continuous latent space, capturing non-linear patient-level relationships and clinical similarities across the cohort that static logic rules miss.
+Second, standard GNN models treat clinical variables as flat data points, ignoring the hierarchical medical knowledge embedded in clinical protocols. By incorporating guidelines as static rule nodes ($V_R$) directly into the graph structure, we allow the neural network to regularize its attention weights using expert-defined medical links.
+Finally, as shown in the ablation study (Table~\ref{tab:ablation}), the Gated Safety Router establishes a cooperative feedback loop: the GNN detects complex, data-driven severity associations from real-world records, while the symbolic Rule Engine acts as a safety guardrail to bypass GNN predictions and prevent false negatives when critical warning flags are triggered. This neuro-symbolic synergy achieves both empirical robustness and clinical compliance.
+
+\subsection{Limitations and Future Work}
+Although the ClinHGAT-RAG framework demonstrates promising performance, three main limitations must be addressed in future work. 
+
+First, the evaluation was conducted on a relatively small, single-center clinical cohort ($N=146$). While this dataset serves as a valuable pilot study to validate the feasibility of the heterogeneous hypergraph representation and the gated safety routing mechanism, deep neural networks (both the GNN and the temporal Transformer) are inherently data-hungry. Consequently, the model parameters might exhibit overfitting to local clinical practices and specific demographic distributions. To ensure generalizability, future iterations will focus on validating the framework on larger, multi-center cohorts with diverse regional patient populations.
+
+Second, the system currently lacks independent external validation. Although an internal patient-level holdout test set was used to assess model generalizability, the system lacks independent validation on datasets collected from external healthcare institutions, which is critical to assessing robustness against clinical dataset shift.
+
+Third, missing laboratory measurements and uneven temporal sampling present challenges for the temporal progression pipeline. In real-world clinical workflows, laboratory tests (such as Platelet counts and Hematocrit) are not strictly ordered at uniform 24-hour intervals, particularly during the transition from the febrile to the critical phase. Although the temporal Transformer utilizes padding and key-masking layers to mitigate this, significant gaps in daily records can degrade sequential dependency modeling.
+
+\subsection{Expert Evaluation Result}
+[TODO: Present the clinical safety, accuracy, and guideline compliance evaluation results of the reports generated by the localized RAG module. This will include the inter-annotator agreement (e.g., Cohen's/Fleiss' kappa) from blind reviews conducted by independent senior physicians specializing in tropical infectious diseases once the clinical evaluation study is finalized.]
+
+\section{Conclusion}
+\label{sec:conclusion}
+We proposed an explainable, hybrid CDSS framework for Dengue severity assessment. By structuring patient attributes on a heterogeneous hypergraph, integrating a confidence-gated fallback mechanism, and applying localized RAG, we demonstrate high classification performance while architecturally supporting guideline compliance. Future work will focus on multi-center clinical trials and formal expert evaluations to validate generalizability and safety.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

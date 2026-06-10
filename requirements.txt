@@ -1,0 +1,11 @@
+pandas
+neo4j
+python-dotenv
+numpy
+streamlit
+plotly
+sentence-transformers
+llama-cpp-python
+PyMuPDF
+torch
+scikit-learn
